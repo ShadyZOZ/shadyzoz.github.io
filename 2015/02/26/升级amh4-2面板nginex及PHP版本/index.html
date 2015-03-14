@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>升级amh4.2面板Nginx及PHP版本 | Shady&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="对于我这种Linux小白来说，用面板来对vps进行管理非常方便，不过由于amh4.2自带的nginx1.4、php5.3、mysql5.5版本都比较低，看了下安装的shell脚本，觉得能改，于是开始着手修改。
+经历也是曲折，尝试了不同的版本组合，最终的到组合是tengine2.1.0（基于nginx）、php5.5.22、mysql5.5（mysql没升级）。使用vps：阿里云单核1G，CentO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="升级amh4.2面板Nginx及PHP版本">
+<meta property="og:url" content="http://www.shady.com.cn/2015/02/26/升级amh4-2面板nginex及PHP版本/index.html">
+<meta property="og:site_name" content="Shady's Blog">
+<meta property="og:description" content="对于我这种Linux小白来说，用面板来对vps进行管理非常方便，不过由于amh4.2自带的nginx1.4、php5.3、mysql5.5版本都比较低，看了下安装的shell脚本，觉得能改，于是开始着手修改。
+经历也是曲折，尝试了不同的版本组合，最终的到组合是tengine2.1.0（基于nginx）、php5.5.22、mysql5.5（mysql没升级）。使用vps：阿里云单核1G，CentO">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="升级amh4.2面板Nginx及PHP版本">
+<meta name="twitter:description" content="对于我这种Linux小白来说，用面板来对vps进行管理非常方便，不过由于amh4.2自带的nginx1.4、php5.3、mysql5.5版本都比较低，看了下安装的shell脚本，觉得能改，于是开始着手修改。
+经历也是曲折，尝试了不同的版本组合，最终的到组合是tengine2.1.0（基于nginx）、php5.5.22、mysql5.5（mysql没升级）。使用vps：阿里云单核1G，CentO">
+  
+  
+    <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script src="http://7vzshl.com1.z0.glb.clouddn.com/jquery.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?fe0a1f1efb37f014cfdf5fa14cc0eac0";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="http://7vzqss.com1.z0.glb.clouddn.com/avatar.JPG">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Shady</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Just be Cool, That&#39;s Yourself.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/tags/Whatever">Whatever</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+							<li><a href="/about">About</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ShadyZOZ" title="github">github</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/shady_zoz" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/VPS/" style="font-size: 20px;">VPS</a><a href="/tags/Whatever/" style="font-size: 20px;">Whatever</a><a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://err02.com">evilddog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://bin16.farbox.com">Bin16</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Shady</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="http://7vzqss.com1.z0.glb.clouddn.com/avatar.JPG">
+				<hgroup>
+				  <h1 class="header-author">Shady</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">Just be Cool, That&#39;s Yourself.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/tags/Whatever">Whatever</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+					<li><a href="/about">About</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ShadyZOZ" title="github">github</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/shady_zoz" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-升级amh4-2面板nginex及PHP版本" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/02/26/升级amh4-2面板nginex及PHP版本/" class="article-date">
+  	<time datetime="2015-02-26T08:19:40.000Z" itemprop="datePublished">Feb 26 2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      升级amh4.2面板Nginx及PHP版本
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于我这种Linux小白来说，用面板来对vps进行管理非常方便，不过由于amh4.2自带的nginx1.4、php5.3、mysql5.5版本都比较低，看了下安装的shell脚本，觉得能改，于是开始着手修改。</p>
+<p>经历也是曲折，尝试了不同的版本组合，最终的到组合是tengine2.1.0（基于nginx）、php5.5.22、mysql5.5（mysql没升级）。<br>使用vps：阿里云单核1G，CentOS6.5 x32，ubuntu12.04也测试过，同样可以。14.04官方未说明支持，故未测试。<br>所有修改都是基于amh官网获得的amh.sh进行修改的。github上<a href="https://github.com/maicong/amh-4.2" target="_blank" rel="external">麦葱修改版</a>应该是不错的修改版，不过我尝试过，并未成功，原因不详，自己重新修改过也未成功，因为急于上线，未深究原因。</p>
+<h1 id="修改方法">修改方法</h1><p>下载并打开shell安装脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://amh.sh/file/AMH/<span class="number">4.2</span>/amh.sh</span><br><span class="line">$ vim amh.sh</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="升级PHP">升级PHP</h2><p>将脚本中的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ PhpVersion=<span class="string">'php-5.3.27'</span>;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ PhpVersion=<span class="string">'php-5.5.22'</span>;  //可以去php.net查看新版本</span><br></pre></td></tr></table></figure>
+<p>找到函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">function</span> InstallPhp()</span><br></pre></td></tr></table></figure></p>
+<p>把下载地址</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Downloadfile</span> <span class="string">"<span class="variable">$&#123;PhpVersion&#125;</span>.tar.gz"</span> <span class="string">"http://code.amysql.com/files/<span class="variable">$&#123;PhpVersion&#125;</span>.tar.gz"</span>;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Downloadfile</span> <span class="string">"<span class="variable">$&#123;PhpVersion&#125;</span>.tar.gz"</span> <span class="string">"http://cn2.php.net/distributions/<span class="variable">$&#123;PhpVersion&#125;</span>.tar.gz"</span>;</span><br></pre></td></tr></table></figure>
+<p>根据自己服务器位置可适当修改<code>cn2</code>，如美国用<code>us2</code></p>
+<p>找到编译参数</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/usr/local/php</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fpm</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">fpm</span><span class="literal">-</span><span class="comment">user=www</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">fpm</span><span class="literal">-</span><span class="comment">group=www</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">config</span><span class="literal">-</span><span class="comment">file</span><span class="literal">-</span><span class="comment">path=/etc</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">config</span><span class="literal">-</span><span class="comment">file</span><span class="literal">-</span><span class="comment">scan</span><span class="literal">-</span><span class="comment">dir=/etc/php</span><span class="string">.</span><span class="comment">d</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">openssl</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">zlib</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">curl</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">ftp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">gd</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">jpeg</span><span class="literal">-</span><span class="comment">dir</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">png</span><span class="literal">-</span><span class="comment">dir</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">freetype</span><span class="literal">-</span><span class="comment">dir</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">gd</span><span class="literal">-</span><span class="comment">native</span><span class="literal">-</span><span class="comment">ttf</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">mbstring</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">zip</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">iconv=/usr/local/libiconv</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">mysql=/usr/local/mysql</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">without</span><span class="literal">-</span><span class="comment">pear</span> <span class="comment">$PHPDisable;</span></span><br></pre></td></tr></table></figure>
+<p>根据自己的需要，添加模块，下面的参数增加了对mysqli和pdo_mysql的支持</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/usr/local/php</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fpm</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">fpm</span><span class="literal">-</span><span class="comment">user=www</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">fpm</span><span class="literal">-</span><span class="comment">group=www</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">config</span><span class="literal">-</span><span class="comment">file</span><span class="literal">-</span><span class="comment">path=/etc</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">config</span><span class="literal">-</span><span class="comment">file</span><span class="literal">-</span><span class="comment">scan</span><span class="literal">-</span><span class="comment">dir=/etc/php</span><span class="string">.</span><span class="comment">d</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">openssl</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">zlib</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">curl</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">ftp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">gd</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">jpeg</span><span class="literal">-</span><span class="comment">dir</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">png</span><span class="literal">-</span><span class="comment">dir</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">freetype</span><span class="literal">-</span><span class="comment">dir</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">gd</span><span class="literal">-</span><span class="comment">native</span><span class="literal">-</span><span class="comment">ttf</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">mbstring</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">zip</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">iconv=/usr/local/libiconv</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">mysql=/usr/local/mysql</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">mysqli=/usr/local/mysql/bin/mysql_config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">pdo</span><span class="literal">-</span><span class="comment">mysql=/usr/local/mysql/bin/mysql_config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">without</span><span class="literal">-</span><span class="comment">pear</span> <span class="comment">$PHPDisable;</span></span><br></pre></td></tr></table></figure>
+<p>至此PHP版本升级修改完毕，不过由于PHP5.3.29之后<code>php-cgi.sock</code>权限变了，可能导致502错误，解决方法放到后面讲。</p>
+<h2 id="升级nginx">升级nginx</h2><p>将脚本中的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ NginxVersion=<span class="string">'nginx-1.4.4'</span>;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ NginxVersion=<span class="string">'tengine-2.1.0'</span>;     //视最新版本而定</span><br></pre></td></tr></table></figure>
+<p>找到函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">function</span> InstallNginx()</span><br></pre></td></tr></table></figure></p>
+<p>把下载地址</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Downloadfile</span> <span class="string">"<span class="variable">$&#123;NginxVersion&#125;</span>.tar.gz"</span> <span class="string">"http://code.amysql.com/files/<span class="variable">$&#123;NginxVersion&#125;</span>.tar.gz"</span>;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Downloadfile</span> <span class="string">"<span class="variable">$&#123;NginxVersion&#125;</span>.tar.gz"</span> <span class="string">"http://tengine.taobao.org/download/<span class="variable">$&#123;NginxVersion&#125;</span>.tar.gz"</span>;</span><br></pre></td></tr></table></figure>
+<p>nginx升级完毕。</p>
+<h2 id="升级mysql（分享方法，自己并未成功）">升级mysql（分享方法，自己并未成功）</h2><p>amh4.2面板兼容mysql5.5及5.6，包括Mariadb</p>
+<p>将脚本中的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ MysqlVersion=<span class="string">'mysql-5.5.34'</span>;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ MysqlVersion=<span class="string">'mariadb-10.0.16'</span>;   //mysql-<span class="number">5.6</span>.<span class="number">23</span>，视官方版本</span><br></pre></td></tr></table></figure>
+<p>找到函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">function</span> InstallMysql()</span><br></pre></td></tr></table></figure></p>
+<p>把下载地址</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Downloadfile</span> <span class="string">"<span class="variable">$&#123;MysqlVersion&#125;</span>.tar.gz"</span> <span class="string">"http://code.amysql.com/files/<span class="variable">$&#123;MysqlVersion&#125;</span>.tar.gz"</span>;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Downloadfile</span> <span class="string">"<span class="variable">$&#123;NginxVersion&#125;</span>.tar.gz"</span> <span class="string">"http://mirrors.neusoft.edu.cn/mariadb/<span class="variable">$&#123;MysqlVersion&#125;</span>/source/<span class="variable">$&#123;MysqlVersion&#125;</span>.tar.gz"</span>;</span><br></pre></td></tr></table></figure>
+<p>下载地址视自己用的数据库版本而定。</p>
+<p>编译配置没有改变。</p>
+<h2 id="问题汇总">问题汇总</h2><h3 id="tengine或者nginx出现502错误">tengine或者nginx出现502错误</h3><p>上面提到过，这个是由于由于PHP5.3.29之后<code>php-cgi.sock</code>权限变了，参考网上调试过程将权限改为777，网页可访问，故判断为权限问题。实际上权限只要666就好。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chmod 666 /tmp/php-cgi.sock</span></span><br></pre></td></tr></table></figure>
+<h3 id="mysql升级中遇到的问题">mysql升级中遇到的问题</h3><p>出现两种问题</p>
+<ol>
+<li><p>出现编译错误，在升级mariadb-10.0.16的时候系统编译到73%左右的时候出现了编译错误，安装失败。后试过参考<a href="http://www.ith8.com/html/906.html" target="_blank" rel="external">amh下从Mysql升级到Mariadb十步曲</a> 进行升级，同样失败。</p>
+</li>
+<li><p>编译安装都成功，但是上翻纪录，发现tengine和mysql服务启动失败，访问amh页面提示<code>/tmp/mysql.sock</code>丢失等。。 想到在OSX上安装mysql时出现<code>2002 socket error</code>尝试在<code>/var/mysql/</code>中查找<code>mysql.sock</code>,无果。用其他方式也未能成功生成mysql.sock。</p>
+</li>
+</ol>
+<p>BTW，OSX上解决<code>2002 socket error</code>方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkdir /var/mysql</span><br><span class="line">$ sudo ln <span class="operator">-s</span> /tmp/mysql.sock /var/mysql/mysql.sock</span><br></pre></td></tr></table></figure>
+<h3 id="关于php5-6">关于php5.6</h3><p>竟然忘记是什么原因5.6升级失败了= =。</p>
+<hr>
+<h3 id="修改版下载链接">修改版下载链接</h3><p>纠结了一下要不要给了下载地址，觉得还是在最后放出来一个吧。</p>
+<p><a href="http://7vzsal.com1.z0.glb.clouddn.com/amh.sh" target="_blank" rel="external">七牛空间下载地址</a></p>
+<p>wget下载方式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://<span class="number">7</span>vzsal.com1.z0.glb.clouddn.com/amh.sh</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          继续折腾amh之本地备份同步上传七牛空间
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/02/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">My First Post - Getting Started with Hexo</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="升级amh4-2面板nginex及PHP版本" data-title="升级amh4.2面板Nginx及PHP版本" data-url="http://www.shady.com.cn/2015/02/26/升级amh4-2面板nginex及PHP版本/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"shadyzoz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Shady
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/mobile.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>
