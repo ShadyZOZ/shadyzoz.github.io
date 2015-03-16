@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>The Caesar Cipher | Shady&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一些废话大学第一节公选课，吕老师的信息安全程序设计，晚去了3分钟，120人的大教室只空了不到5个座位。上完课，5点多，回到寝室根本停不下来，着手写程序。不限语言，写一个gui界面的凯撒加密，要求步长可变，大小写、数字、符号可换。毕竟PHP学的比较久，先PHP写起，差不多刚写完，室友拉着我一起去吃饭。一直以为时间是7点多，看看二餐、看看表快9点了，也是醉了，全然不知过了这么久。回来把上学期活动报销的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Caesar Cipher">
+<meta property="og:url" content="http://www.shady.com.cn/2015/03/17/The-Caesar-Cipher/index.html">
+<meta property="og:site_name" content="Shady's Blog">
+<meta property="og:description" content="一些废话大学第一节公选课，吕老师的信息安全程序设计，晚去了3分钟，120人的大教室只空了不到5个座位。上完课，5点多，回到寝室根本停不下来，着手写程序。不限语言，写一个gui界面的凯撒加密，要求步长可变，大小写、数字、符号可换。毕竟PHP学的比较久，先PHP写起，差不多刚写完，室友拉着我一起去吃饭。一直以为时间是7点多，看看二餐、看看表快9点了，也是醉了，全然不知过了这么久。回来把上学期活动报销的">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Caesar Cipher">
+<meta name="twitter:description" content="一些废话大学第一节公选课，吕老师的信息安全程序设计，晚去了3分钟，120人的大教室只空了不到5个座位。上完课，5点多，回到寝室根本停不下来，着手写程序。不限语言，写一个gui界面的凯撒加密，要求步长可变，大小写、数字、符号可换。毕竟PHP学的比较久，先PHP写起，差不多刚写完，室友拉着我一起去吃饭。一直以为时间是7点多，看看二餐、看看表快9点了，也是醉了，全然不知过了这么久。回来把上学期活动报销的">
+  
+  
+    <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script src="http://7vzshl.com1.z0.glb.clouddn.com/jquery.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?fe0a1f1efb37f014cfdf5fa14cc0eac0";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="http://7vzqss.com1.z0.glb.clouddn.com/avatar.JPG">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Shady</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Just be Cool, That&#39;s Yourself.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/tags/Whatever">Whatever</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+							<li><a href="/about">About</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ShadyZOZ" title="github">github</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/shady_zoz" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/PHP/" style="font-size: 10px;">PHP</a><a href="/tags/Python/" style="font-size: 15px;">Python</a><a href="/tags/VPS/" style="font-size: 15px;">VPS</a><a href="/tags/Whatever/" style="font-size: 20px;">Whatever</a><a href="/tags/gui/" style="font-size: 10px;">gui</a><a href="/tags/信息安全程序设计/" style="font-size: 10px;">信息安全程序设计</a><a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://err02.com">evilddog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://bin16.farbox.com">Bin16</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Shady</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="http://7vzqss.com1.z0.glb.clouddn.com/avatar.JPG">
+				<hgroup>
+				  <h1 class="header-author">Shady</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">Just be Cool, That&#39;s Yourself.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/tags/Whatever">Whatever</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+					<li><a href="/about">About</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ShadyZOZ" title="github">github</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/shady_zoz" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-The-Caesar-Cipher" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/03/17/The-Caesar-Cipher/" class="article-date">
+  	<time datetime="2015-03-16T19:37:50.000Z" itemprop="datePublished">Mar 17 2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      The Caesar Cipher
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Whatever/">Whatever</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gui/">gui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息安全程序设计/">信息安全程序设计</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一些废话">一些废话</h2><p>大学第一节公选课，吕老师的信息安全程序设计，晚去了3分钟，120人的大教室只空了不到5个座位。<br>上完课，5点多，回到寝室根本停不下来，着手写程序。不限语言，写一个gui界面的凯撒加密，要求步长可变，大小写、数字、符号可换。<br>毕竟PHP学的比较久，先PHP写起，差不多刚写完，室友拉着我一起去吃饭。一直以为时间是7点多，看看二餐、看看表快9点了，也是醉了，全然不知过了这么久。<br>回来把上学期活动报销的事还有换班长的事搞定，觉得写个web页有点不符合要求啊，还是拿python重写吧。</p>
+<h2 id="一些要点">一些要点</h2><h3 id="编码转换">编码转换</h3><p>php以及python不能像c语言那样直接对字符ASCII码进行加减，需要使用<code>ord()</code>函数讲字符转为ASCII码值，进行加减，再用<code>chr()</code>将数值转换会字符，此函数php与python的用法相同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ord(char)</span><br><span class="line">chr(char)</span><br></pre></td></tr></table></figure>
+<h3 id="使用Tkinter编写gui">使用Tkinter编写gui</h3><a id="more"></a>
+<p>我也只是东搜西搜，看了几个小时的Tkinter，所以也没有很深入的理解。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Tkinter <span class="keyword">import</span> *</span><br><span class="line">root = Tk()</span><br><span class="line">root.title(<span class="string">"The Caesar Cipher - python"</span>)</span><br><span class="line">root.geometry(<span class="string">'600x400'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># lable</span></span><br><span class="line">about = Label(root,text=<span class="string">"The Caesar Cipher"</span>)</span><br><span class="line">about.pack(side=TOP)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Entry input</span></span><br><span class="line">step = StringVar()</span><br><span class="line">entry = Entry(root,textvariable = step, width=<span class="number">80</span>)</span><br><span class="line">step.set(<span class="string">'input step here (default: 3)'</span>)</span><br><span class="line">entry.pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Entry readonly</span></span><br><span class="line">EncryptResult = StringVar()</span><br><span class="line">Entry(root, width=<span class="number">80</span>, textvariable=EncryptResult, stat=<span class="string">"readonly"</span>).pack()</span><br><span class="line">EncryptResult.set(<span class="string">'encrypt result'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># button</span></span><br><span class="line">Button(root, text=<span class="string">"encrypt"</span>, fg=<span class="string">"blue"</span>,bd=<span class="number">2</span>,width=<span class="number">20</span>,command=encrypt).pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># menubar</span></span><br><span class="line">menubar = Menu(root)</span><br><span class="line">filemenu = Menu(menubar,tearoff=<span class="number">0</span>)</span><br><span class="line">filemenu.add_command(label=<span class="string">"About"</span>, command=about)</span><br><span class="line">menubar.add_cascade(label=<span class="string">"Help"</span>, menu=filemenu)</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable menubar</span></span><br><span class="line">root.config(menu=menubar)</span><br><span class="line"></span><br><span class="line"><span class="comment"># display</span></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
+<p>如何获取<code>Entry</code>框输入的信息？<br>使用<code>get()</code>，如获取步长</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shift = step.get()</span><br></pre></td></tr></table></figure>
+<h2 id="talk_is_cheap,_show_me_the_code">talk is cheap, show me the code</h2><h3 id="python">python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Tkinter <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">()</span>:</span></span><br><span class="line">    result = <span class="string">''</span></span><br><span class="line">    step.get()</span><br><span class="line">    <span class="keyword">if</span> step.get() == <span class="string">'input step here (default: 3)'</span>:</span><br><span class="line">        shift = <span class="number">3</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        shift = int(step.get())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> plaintext.get():</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">97</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">122</span>:</span><br><span class="line">            result += chr(<span class="number">97</span> + ((ord(char)+shift) - <span class="number">97</span>)%<span class="number">26</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">65</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">90</span>:</span><br><span class="line">            result += chr(<span class="number">65</span> + ((ord(char)+shift) - <span class="number">65</span>)%<span class="number">26</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">48</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">57</span>:</span><br><span class="line">            result += chr(<span class="number">48</span> + ((ord(char)+shift) - <span class="number">48</span>)%<span class="number">10</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">33</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">47</span>:</span><br><span class="line">            result += chr(<span class="number">33</span> + ((ord(char)+shift) - <span class="number">33</span>)%<span class="number">15</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">58</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">64</span>:</span><br><span class="line">            result += chr(<span class="number">58</span> + ((ord(char)+shift) - <span class="number">58</span>)%<span class="number">7</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">91</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">96</span>:</span><br><span class="line">            result += chr(<span class="number">91</span> + ((ord(char)+shift) - <span class="number">91</span>)%<span class="number">6</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">123</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">126</span>:</span><br><span class="line">            result += chr(<span class="number">123</span> + ((ord(char)+shift) - <span class="number">123</span>)%<span class="number">4</span>)</span><br><span class="line">        <span class="keyword">if</span> char == <span class="string">' '</span>:</span><br><span class="line">            result += <span class="string">' '</span></span><br><span class="line">    EncryptResult.set(result)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">()</span>:</span></span><br><span class="line">    result = <span class="string">''</span></span><br><span class="line">    step.get()</span><br><span class="line">    <span class="keyword">if</span> step.get() == <span class="string">'input step here (default: 3)'</span>:</span><br><span class="line">        shift = <span class="number">3</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        shift = int(step.get())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> cyphertext.get():</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">97</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">122</span>:</span><br><span class="line">            result += chr(<span class="number">122</span> - (<span class="number">122</span> - (ord(char)-shift))%<span class="number">26</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">65</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">90</span>:</span><br><span class="line">            result += chr(<span class="number">90</span> - (<span class="number">90</span> - (ord(char)-shift))%<span class="number">26</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">48</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">57</span>:</span><br><span class="line">            result += chr(<span class="number">57</span> - (<span class="number">57</span> - (ord(char)-shift))%<span class="number">10</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">33</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">47</span>:</span><br><span class="line">            result += chr(<span class="number">47</span> - (<span class="number">47</span> - (ord(char)-shift))%<span class="number">15</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">58</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">64</span>:</span><br><span class="line">            result += chr(<span class="number">64</span> - (<span class="number">64</span> - (ord(char)-shift))%<span class="number">7</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">91</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">96</span>:</span><br><span class="line">            result += chr(<span class="number">96</span> - (<span class="number">96</span> - (ord(char)-shift))%<span class="number">6</span>)</span><br><span class="line">        <span class="keyword">if</span> ord(char) &gt;= <span class="number">123</span> <span class="keyword">and</span> ord(char) &lt;= <span class="number">126</span>:</span><br><span class="line">            result += chr(<span class="number">126</span> - (<span class="number">126</span> - (ord(char)-shift))%<span class="number">4</span>)</span><br><span class="line">        <span class="keyword">if</span> char == <span class="string">' '</span>:</span><br><span class="line">            result += <span class="string">' '</span></span><br><span class="line">    DecryptResult.set(result)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">about</span><span class="params">()</span>:</span></span><br><span class="line">    about = Label(root,text=<span class="string">"Hacked by Shady"</span>)</span><br><span class="line">    about.pack(side=TOP)</span><br><span class="line"></span><br><span class="line">root = Tk()</span><br><span class="line">root.title(<span class="string">"The Caesar Cipher - python"</span>)</span><br><span class="line">root.geometry(<span class="string">'600x400'</span>)</span><br><span class="line"></span><br><span class="line">about = Label(root,text=<span class="string">"The Caesar Cipher"</span>)</span><br><span class="line">about.pack(side=TOP)</span><br><span class="line"></span><br><span class="line"><span class="comment"># menubar for fun</span></span><br><span class="line">menubar = Menu(root)</span><br><span class="line">filemenu = Menu(menubar,tearoff=<span class="number">0</span>)</span><br><span class="line">filemenu.add_command(label=<span class="string">"About"</span>, command=about)</span><br><span class="line">menubar.add_cascade(label=<span class="string">"Help"</span>, menu=filemenu)</span><br><span class="line"></span><br><span class="line"><span class="comment"># step</span></span><br><span class="line">step = StringVar()</span><br><span class="line">entry = Entry(root,textvariable = step, width=<span class="number">80</span>)</span><br><span class="line">step.set(<span class="string">'input step here (default: 3)'</span>)</span><br><span class="line">entry.pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># plaintext input</span></span><br><span class="line">plaintext = StringVar()</span><br><span class="line">entry = Entry(root,textvariable = plaintext, width=<span class="number">80</span>)</span><br><span class="line">plaintext.set(<span class="string">'input plaintext here'</span>)</span><br><span class="line">entry.pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># encrypt button</span></span><br><span class="line">Button(root, text=<span class="string">"encrypt"</span>, fg=<span class="string">"blue"</span>,bd=<span class="number">2</span>,width=<span class="number">20</span>,command=encrypt).pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># encrypt result</span></span><br><span class="line">EncryptResult = StringVar()</span><br><span class="line">Entry(root, width=<span class="number">80</span>, textvariable=EncryptResult, stat=<span class="string">"readonly"</span>).pack()</span><br><span class="line">EncryptResult.set(<span class="string">'encrypt result'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># cyphertext input</span></span><br><span class="line">cyphertext = StringVar()</span><br><span class="line">entry = Entry(root,textvariable = cyphertext, width=<span class="number">80</span>)</span><br><span class="line">cyphertext.set(<span class="string">'input cyphertext here'</span>)</span><br><span class="line">entry.pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># decrypt button</span></span><br><span class="line">Button(root, text=<span class="string">"decrypt"</span>, fg=<span class="string">"blue"</span>,bd=<span class="number">2</span>,width=<span class="number">20</span>,command=decrypt).pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># decrypt result</span></span><br><span class="line">DecryptResult = StringVar()</span><br><span class="line">Entry(root, width=<span class="number">80</span>, textvariable=DecryptResult, stat=<span class="string">"readonly"</span>).pack()</span><br><span class="line">DecryptResult.set(<span class="string">'decrypt result'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable menubar</span></span><br><span class="line">root.config(menu=menubar)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
+<h3 id="PHP">PHP</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=<span class="string">"caesar.php"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">step(<span class="keyword">default</span>: <span class="number">3</span>): &lt;input type=<span class="string">"number"</span> name=<span class="string">"step"</span>&gt;&lt;br&gt;</span><br><span class="line">plaintext: &lt;input type=<span class="string">"text"</span> name=<span class="string">"plaintext"</span>&gt;&lt;br&gt;</span><br><span class="line">ciphertext: &lt;input type=<span class="string">"text"</span> name=<span class="string">"ciphertext"</span>&gt;&lt;br&gt;</span><br><span class="line">&lt;input type=<span class="string">"submit"</span> name=<span class="string">"action"</span> value=<span class="string">'encrypt'</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"submit"</span> name=<span class="string">"action"</span> value=<span class="string">'decrypt'</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test_input</span><span class="params">(<span class="variable">$data</span>)</span> </span>&#123;</span><br><span class="line">	<span class="variable">$data</span> = trim(<span class="variable">$data</span>);</span><br><span class="line">	<span class="variable">$data</span> = stripslashes(<span class="variable">$data</span>);</span><br><span class="line">	<span class="variable">$data</span> = htmlspecialchars(<span class="variable">$data</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$data</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$action</span> = <span class="variable">$_POST</span>[<span class="string">'action'</span>];</span><br><span class="line"><span class="variable">$step</span> = <span class="variable">$_POST</span>[<span class="string">'step'</span>];</span><br><span class="line"><span class="variable">$plaintext</span> = test_input(<span class="variable">$_POST</span>[<span class="string">'plaintext'</span>]);</span><br><span class="line"><span class="variable">$ciphertext</span> = test_input(<span class="variable">$_POST</span>[<span class="string">'ciphertext'</span>]);</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$action</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">empty</span>(<span class="variable">$step</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$step</span> = <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$action</span> == <span class="string">'encrypt'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$plaintext</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$ciphertext</span> = <span class="string">''</span>;</span><br><span class="line">            <span class="variable">$arr</span> = str_split(<span class="variable">$plaintext</span>);</span><br><span class="line">            <span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$plainchar</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$plainchar</span>&gt;=<span class="string">'a'</span> &amp;&amp; <span class="variable">$plainchar</span>&lt;=<span class="string">'z'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$ciphertext</span> .= chr(<span class="number">97</span> + ((ord(<span class="variable">$plainchar</span>)+<span class="variable">$step</span>) - <span class="number">97</span>)%<span class="number">26</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$plainchar</span>&gt;=<span class="string">'A'</span> &amp;&amp; <span class="variable">$plainchar</span>&lt;=<span class="string">'Z'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$ciphertext</span> .= chr(<span class="number">65</span> + ((ord(<span class="variable">$plainchar</span>)+<span class="variable">$step</span>) - <span class="number">65</span>)%<span class="number">26</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$plainchar</span>&gt;=<span class="string">'0'</span> &amp;&amp; <span class="variable">$plainchar</span>&lt;=<span class="string">'9'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$ciphertext</span> .= chr(<span class="number">48</span> + ((ord(<span class="variable">$plainchar</span>)+<span class="variable">$step</span>) - <span class="number">48</span>)%<span class="number">10</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$plainchar</span>&gt;=<span class="string">'!'</span> &amp;&amp; <span class="variable">$plainchar</span>&lt;=<span class="string">'/'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$ciphertext</span> .= chr(<span class="number">33</span> + ((ord(<span class="variable">$plainchar</span>)+<span class="variable">$step</span>) - <span class="number">33</span>)%<span class="number">15</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$plainchar</span>&gt;=<span class="string">':'</span> &amp;&amp; <span class="variable">$plainchar</span>&lt;=<span class="string">'@'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$ciphertext</span> .= chr(<span class="number">58</span> + ((ord(<span class="variable">$plainchar</span>)+<span class="variable">$step</span>) - <span class="number">58</span>)%<span class="number">7</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$plainchar</span>&gt;=<span class="string">'['</span> &amp;&amp; <span class="variable">$plainchar</span>&lt;=<span class="string">'`'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$ciphertext</span> .= chr(<span class="number">91</span> + ((ord(<span class="variable">$plainchar</span>)+<span class="variable">$step</span>) - <span class="number">91</span>)%<span class="number">6</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$plainchar</span>&gt;=<span class="string">'&#123;'</span> &amp;&amp; <span class="variable">$plainchar</span>&lt;=<span class="string">'~'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$ciphertext</span> .= chr(<span class="number">123</span> + ((ord(<span class="variable">$plainchar</span>)+<span class="variable">$step</span>) - <span class="number">123</span>)%<span class="number">4</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;h4&gt;ciphertext(step: $step):&lt;/h4&gt;"</span>;</span><br><span class="line">        	<span class="keyword">echo</span> <span class="string">"&lt;h4&gt;$ciphertext&lt;/h4&gt;"</span>;</span><br><span class="line">            <span class="keyword">unset</span>(<span class="variable">$plainchar</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'nothing to encrypt'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">elseif</span>(<span class="variable">$action</span> == <span class="string">'decrypt'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$ciphertext</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$plaintext</span> = <span class="string">''</span>;</span><br><span class="line">            <span class="variable">$arr</span> = str_split(<span class="variable">$ciphertext</span>);</span><br><span class="line">            <span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$cipherchar</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$cipherchar</span>&gt;=<span class="string">'a'</span> &amp;&amp; <span class="variable">$cipherchar</span>&lt;=<span class="string">'z'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$plaintext</span> .= chr(<span class="number">122</span> - (<span class="number">122</span> - (ord(<span class="variable">$cipherchar</span>)-<span class="variable">$step</span>))%<span class="number">26</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$cipherchar</span>&gt;=<span class="string">'A'</span> &amp;&amp; <span class="variable">$cipherchar</span>&lt;=<span class="string">'Z'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$plaintext</span> .= chr(<span class="number">90</span> - (<span class="number">90</span> - (ord(<span class="variable">$cipherchar</span>)-<span class="variable">$step</span>))%<span class="number">26</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$cipherchar</span>&gt;=<span class="string">'0'</span> &amp;&amp; <span class="variable">$cipherchar</span>&lt;=<span class="string">'9'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$plaintext</span> .= chr(<span class="number">57</span> - (<span class="number">57</span> - (ord(<span class="variable">$cipherchar</span>)-<span class="variable">$step</span>))%<span class="number">10</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$cipherchar</span>&gt;=<span class="string">'!'</span> &amp;&amp; <span class="variable">$cipherchar</span>&lt;=<span class="string">'/'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$plaintext</span> .= chr(<span class="number">47</span> - (<span class="number">47</span> - (ord(<span class="variable">$cipherchar</span>)-<span class="variable">$step</span>))%<span class="number">15</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$cipherchar</span>&gt;=<span class="string">':'</span> &amp;&amp; <span class="variable">$cipherchar</span>&lt;=<span class="string">'@'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$plaintext</span> .= chr(<span class="number">64</span> - (<span class="number">64</span> - (ord(<span class="variable">$cipherchar</span>)-<span class="variable">$step</span>))%<span class="number">7</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$cipherchar</span>&gt;=<span class="string">'['</span> &amp;&amp; <span class="variable">$cipherchar</span>&lt;=<span class="string">'`'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$plaintext</span> .= chr(<span class="number">96</span> - (<span class="number">96</span> - (ord(<span class="variable">$cipherchar</span>)-<span class="variable">$step</span>))%<span class="number">6</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$cipherchar</span>&gt;=<span class="string">'&#123;'</span> &amp;&amp; <span class="variable">$cipherchar</span>&lt;=<span class="string">'~'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="variable">$plaintext</span> .= chr(<span class="number">126</span> - (<span class="number">126</span> - (ord(<span class="variable">$cipherchar</span>)-<span class="variable">$step</span>))%<span class="number">4</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;h4&gt;plaintext(step: $step):&lt;/h4&gt;"</span>;</span><br><span class="line">        	<span class="keyword">echo</span> <span class="string">"&lt;h4&gt;$plaintext&lt;/h4&gt;"</span>;</span><br><span class="line">            <span class="keyword">unset</span>(<span class="variable">$cipherchar</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'nothing to decrypt'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">    	<span class="keyword">echo</span> <span class="string">'what have you done'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">'nothing to do, please input'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>又睡这么晚，早上还要检查卫生。。。。。。</p>
+
+        
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/03/16/rot13-base64-scripts-by-python/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">rot13 &amp; base64 scripts by python</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="The-Caesar-Cipher" data-title="The Caesar Cipher" data-url="http://www.shady.com.cn/2015/03/17/The-Caesar-Cipher/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"shadyzoz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Shady
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/mobile.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

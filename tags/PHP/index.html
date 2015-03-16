@@ -8,7 +8,7 @@
   <meta name="description" content="Welcome to ZOZ">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shady's Blog">
-<meta property="og:url" content="http://www.shady.com.cn/archives/2015/02/index.html">
+<meta property="og:url" content="http://www.shady.com.cn/tags/PHP/index.html">
 <meta property="og:site_name" content="Shady's Blog">
 <meta property="og:description" content="Welcome to ZOZ">
 <meta name="twitter:card" content="summary">
@@ -182,11 +182,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-继续折腾amh之本地备份同步上传七牛空间" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-The-Caesar-Cipher" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/" class="article-date">
-  	<time datetime="2015-02-27T08:19:40.000Z" itemprop="datePublished">Feb 27 2015</time>
+      <a href="/2015/03/17/The-Caesar-Cipher/" class="article-date">
+  	<time datetime="2015-03-16T19:37:50.000Z" itemprop="datePublished">Mar 17 2015</time>
 </a>
     </div>
   
@@ -199,7 +199,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/">继续折腾amh之本地备份同步上传七牛空间</a>
+      <a class="article-title" href="/2015/03/17/The-Caesar-Cipher/">The Caesar Cipher</a>
     </h1>
   
 
@@ -208,12 +208,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>继续折腾amh，虽然amh有远程备份功能，不过对于只有一台vps的用户来说，备份只能保存到本地，万一服务器出现问题，备份了也没用，于是想到让备份同步上传到<a href="https://portal.qiniu.com/signup?code=3lqai8s9lgaj6">七牛空间</a>。<br>七牛的CDN加速做的相当不错的，作图床，成为标准用户可以把网页的js，css放上去访问速度肯定要比在自己服务器上快得多。</p>
-<p>修改的代码就两行</p>
-<h1 id="准备工作">准备工作</h1>
+        <h2 id="一些废话">一些废话</h2><p>大学第一节公选课，吕老师的信息安全程序设计，晚去了3分钟，120人的大教室只空了不到5个座位。<br>上完课，5点多，回到寝室根本停不下来，着手写程序。不限语言，写一个gui界面的凯撒加密，要求步长可变，大小写、数字、符号可换。<br>毕竟PHP学的比较久，先PHP写起，差不多刚写完，室友拉着我一起去吃饭。一直以为时间是7点多，看看二餐、看看表快9点了，也是醉了，全然不知过了这么久。<br>回来把上学期活动报销的事还有换班长的事搞定，觉得写个web页有点不符合要求啊，还是拿python重写吧。</p>
+<h2 id="一些要点">一些要点</h2><h3 id="编码转换">编码转换</h3><p>php以及python不能像c语言那样直接对字符ASCII码进行加减，需要使用<code>ord()</code>函数讲字符转为ASCII码值，进行加减，再用<code>chr()</code>将数值转换会字符，此函数php与python的用法相同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ord(char)</span><br><span class="line">chr(char)</span><br></pre></td></tr></table></figure>
+<h3 id="使用Tkinter编写gui">使用Tkinter编写gui</h3>
         <hr/>
         <p class="article-more-link">
-          <a  href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/#more">more >></a>
+          <a  href="/2015/03/17/The-Caesar-Cipher/#more">more >></a>
         </p>
       
     </div>
@@ -221,121 +222,7 @@
     <div class="article-info">
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-升级amh4-2面板nginex及PHP版本" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/02/26/升级amh4-2面板nginex及PHP版本/" class="article-date">
-  	<time datetime="2015-02-26T08:19:40.000Z" itemprop="datePublished">Feb 26 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/26/升级amh4-2面板nginex及PHP版本/">升级amh4.2面板Nginx及PHP版本</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对于我这种Linux小白来说，用面板来对vps进行管理非常方便，不过由于amh4.2自带的nginx1.4、php5.3、mysql5.5版本都比较低，看了下安装的shell脚本，觉得能改，于是开始着手修改。</p>
-<p>经历也是曲折，尝试了不同的版本组合，最终的到组合是tengine2.1.0（基于nginx）、php5.5.22、mysql5.5（mysql没升级）。<br>使用vps：阿里云单核1G，CentOS6.5 x32，ubuntu12.04也测试过，同样可以。14.04官方未说明支持，故未测试。<br>所有修改都是基于amh官网获得的amh.sh进行修改的。github上<a href="https://github.com/maicong/amh-4.2">麦葱修改版</a>应该是不错的修改版，不过我尝试过，并未成功，原因不详，自己重新修改过也未成功，因为急于上线，未深究原因。</p>
-<h1 id="修改方法">修改方法</h1><p>下载并打开shell安装脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://amh.sh/file/AMH/<span class="number">4.2</span>/amh.sh</span><br><span class="line">$ vim amh.sh</span><br></pre></td></tr></table></figure>
-        <hr/>
-        <p class="article-more-link">
-          <a  href="/2015/02/26/升级amh4-2面板nginex及PHP版本/#more">more >></a>
-        </p>
-      
-    </div>
-    
-    <div class="article-info">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/02/25/hello-world/" class="article-date">
-  	<time datetime="2015-02-25T08:09:40.000Z" itemprop="datePublished">Feb 25 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/25/hello-world/">My First Post - Getting Started with Hexo</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本打算使用Jekyll搭建静态博客的，不过因为Jekyll的生成速度有点慢，尤其是文章多了之后（我能不能坚持写到那么多还是个问题），就听了DDog同学的建议，转向同样基于node.js的<a href="http://hexo.io">Hexo</a></p>
-<h2 id="Quick_Start">Quick Start</h2>
-        <hr/>
-        <p class="article-more-link">
-          <a  href="/2015/02/25/hello-world/#more">more >></a>
-        </p>
-      
-    </div>
-    
-    <div class="article-info">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Whatever/">Whatever</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Whatever/">Whatever</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gui/">gui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息安全程序设计/">信息安全程序设计</a></li></ul>
 	</div>
 
       
