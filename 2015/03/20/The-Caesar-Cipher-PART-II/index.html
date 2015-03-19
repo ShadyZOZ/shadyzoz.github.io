@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Shady&#39;s Blog</title>
+  <title>The Caesar Cipher PART II | Shady&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to ZOZ">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shady's Blog">
-<meta property="og:url" content="http://www.shady.com.cn/tags/信息安全程序设计/index.html">
+  <meta name="description" content="因为室友一直写不出来基于MFC的图形界面，所以我就自己尝试了一下，然后一次性成功了。。。。。。
+Again, talk is cheap, show me the codegui没啥特殊的，这里就粘一下两个按钮的动作，其他啥的参考MFC编程好了。。。。。。
+12345678910111213141516171819202122232425262728293031323334353637383940">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Caesar Cipher PART II">
+<meta property="og:url" content="http://www.shady.com.cn/2015/03/20/The-Caesar-Cipher-PART-II/index.html">
 <meta property="og:site_name" content="Shady's Blog">
-<meta property="og:description" content="Welcome to ZOZ">
+<meta property="og:description" content="因为室友一直写不出来基于MFC的图形界面，所以我就自己尝试了一下，然后一次性成功了。。。。。。
+Again, talk is cheap, show me the codegui没啥特殊的，这里就粘一下两个按钮的动作，其他啥的参考MFC编程好了。。。。。。
+12345678910111213141516171819202122232425262728293031323334353637383940">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shady's Blog">
-<meta name="twitter:description" content="Welcome to ZOZ">
+<meta name="twitter:title" content="The Caesar Cipher PART II">
+<meta name="twitter:description" content="因为室友一直写不出来基于MFC的图形界面，所以我就自己尝试了一下，然后一次性成功了。。。。。。
+Again, talk is cheap, show me the codegui没啥特殊的，这里就粘一下两个按钮的动作，其他啥的参考MFC编程好了。。。。。。
+12345678910111213141516171819202122232425262728293031323334353637383940">
   
   
     <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
@@ -180,9 +186,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-The-Caesar-Cipher-PART-II" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-The-Caesar-Cipher-PART-II" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2015/03/20/The-Caesar-Cipher-PART-II/" class="article-date">
@@ -198,12 +202,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/20/The-Caesar-Cipher-PART-II/">The Caesar Cipher PART II</a>
+    <h1 class="article-title" itemprop="name">
+      The Caesar Cipher PART II
     </h1>
   
 
       </header>
+      
+      <div class="article-info">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gui/">gui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息安全程序设计/">信息安全程序设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密算法/">加密算法</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -213,95 +228,64 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> CcaesarDlg::OnBnClickedButton1()   <span class="comment">//encrypt</span></span><br><span class="line">&#123;</span><br><span class="line">	UpdateData(TRUE);</span><br><span class="line">	m_crypt = m_plaintext;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m_plaintext.GetLength(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (m_plaintext.GetAt(i) &gt;= <span class="number">97</span> &amp;&amp; m_plaintext.GetAt(i) &lt;= <span class="number">122</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_crypt.SetAt(i, <span class="number">97</span> + ((m_plaintext.GetAt(i) + m_step) - <span class="number">97</span>) % <span class="number">26</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_plaintext.GetAt(i) &gt;= <span class="number">65</span> &amp;&amp; m_plaintext.GetAt(i) &lt;= <span class="number">90</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_crypt.SetAt(i, <span class="number">65</span> + ((m_plaintext.GetAt(i) + m_step) - <span class="number">65</span>) % <span class="number">26</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_plaintext.GetAt(i) &gt;= <span class="number">48</span> &amp;&amp; m_plaintext.GetAt(i) &lt;= <span class="number">57</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_crypt.SetAt(i, <span class="number">48</span> + ((m_plaintext.GetAt(i) + m_step) - <span class="number">48</span>) % <span class="number">10</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_plaintext.GetAt(i) &gt;= <span class="number">33</span> &amp;&amp; m_plaintext.GetAt(i) &lt;= <span class="number">47</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_crypt.SetAt(i, <span class="number">33</span> + ((m_plaintext.GetAt(i) + m_step) - <span class="number">33</span>) % <span class="number">15</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_plaintext.GetAt(i) &gt;= <span class="number">58</span> &amp;&amp; m_plaintext.GetAt(i) &lt;= <span class="number">64</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_crypt.SetAt(i, <span class="number">58</span> + ((m_plaintext.GetAt(i) + m_step) - <span class="number">58</span>) % <span class="number">7</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_plaintext.GetAt(i) &gt;= <span class="number">91</span> &amp;&amp; m_plaintext.GetAt(i) &lt;= <span class="number">96</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_crypt.SetAt(i, <span class="number">91</span> + ((m_plaintext.GetAt(i) + m_step) - <span class="number">91</span>) % <span class="number">6</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_plaintext.GetAt(i) &gt;= <span class="number">123</span> &amp;&amp; m_plaintext.GetAt(i) &lt;= <span class="number">126</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_crypt.SetAt(i, <span class="number">123</span> + ((m_plaintext.GetAt(i) + m_step) - <span class="number">123</span>) % <span class="number">4</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">		UpdateData(FALSE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> CcaesarDlg::OnBnClickedButton2()   <span class="comment">//decrypt</span></span><br><span class="line">&#123;</span><br><span class="line">	UpdateData(TRUE);</span><br><span class="line">	m_decrypt = m_crypt;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m_crypt.GetLength(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (m_crypt.GetAt(i) &gt;= <span class="number">97</span> &amp;&amp; m_crypt.GetAt(i) &lt;= <span class="number">122</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_decrypt.SetAt(i, <span class="number">122</span> - (<span class="number">122</span> - (m_crypt.GetAt(i) - m_step)) % <span class="number">26</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_crypt.GetAt(i) &gt;= <span class="number">65</span> &amp;&amp; m_crypt.GetAt(i) &lt;= <span class="number">90</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_decrypt.SetAt(i, <span class="number">90</span> - (<span class="number">90</span> - (m_crypt.GetAt(i) - m_step)) % <span class="number">26</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_crypt.GetAt(i) &gt;= <span class="number">48</span> &amp;&amp; m_crypt.GetAt(i) &lt;= <span class="number">57</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_decrypt.SetAt(i, <span class="number">57</span> - (<span class="number">57</span> - (m_crypt.GetAt(i) - m_step)) % <span class="number">10</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_crypt.GetAt(i) &gt;= <span class="number">33</span> &amp;&amp; m_crypt.GetAt(i) &lt;= <span class="number">47</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_decrypt.SetAt(i, <span class="number">47</span> - (<span class="number">47</span> - (m_crypt.GetAt(i) - m_step)) % <span class="number">15</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_crypt.GetAt(i) &gt;= <span class="number">58</span> &amp;&amp; m_crypt.GetAt(i) &lt;= <span class="number">64</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_decrypt.SetAt(i, <span class="number">64</span> - (<span class="number">64</span> - (m_crypt.GetAt(i) - m_step)) % <span class="number">7</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_crypt.GetAt(i) &gt;= <span class="number">91</span> &amp;&amp; m_crypt.GetAt(i) &lt;= <span class="number">96</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_decrypt.SetAt(i, <span class="number">96</span> - (<span class="number">96</span> - (m_crypt.GetAt(i) - m_step)) % <span class="number">6</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m_crypt.GetAt(i) &gt;= <span class="number">123</span> &amp;&amp; m_crypt.GetAt(i) &lt;= <span class="number">126</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			m_decrypt.SetAt(i, <span class="number">126</span> - (<span class="number">126</span> - (m_crypt.GetAt(i) - m_step)) % <span class="number">4</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	UpdateData(FALSE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
-          <!-- show an end symbol if the article is fully displayed -->
-          <hr/>
-          <p class="article-more-link">
-            <a>end</a>
-          </p>
-        
       
-    </div>
-    
-    <div class="article-info">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gui/">gui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息安全程序设计/">信息安全程序设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密算法/">加密算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/03/17/The-Caesar-Cipher/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">The Caesar Cipher</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-
-
-
-
-  
-    <article id="post-The-Caesar-Cipher" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/03/17/The-Caesar-Cipher/" class="article-date">
-  	<time datetime="2015-03-16T19:37:50.000Z" itemprop="datePublished">Mar 17 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/17/The-Caesar-Cipher/">The Caesar Cipher</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一些废话">一些废话</h2><p>这也算加密算法？！就是个入门吧，凡事都从基础做起。<br>大学第一节公选课，吕老师的信息安全程序设计，晚去了3分钟，120人的大教室只空了不到5个座位。<br>上完课，5点多，回到寝室根本停不下来，着手写程序。不限语言，写一个gui界面的凯撒加密，要求步长可变，大小写、数字、符号可换。<br>毕竟PHP学的比较久，先PHP写起，差不多刚写完，室友拉着我一起去吃饭。一直以为时间是7点多，看看二餐、看看表快9点了，也是醉了，全然不知过了这么久。<br>回来把上学期活动报销的事还有换班长的事搞定，觉得写个web页有点不符合要求啊，还是拿python重写吧。</p>
-<h2 id="一些要点">一些要点</h2><h3 id="编码转换">编码转换</h3><p>php以及python不能像c语言那样直接对字符ASCII码进行加减，需要使用<code>ord()</code>函数讲字符转为ASCII码值，进行加减，再用<code>chr()</code>将数值转换会字符，此函数php与python的用法相同。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ord(char)</span><br><span class="line">chr(char)</span><br></pre></td></tr></table></figure>
-<h3 id="使用Tkinter编写gui">使用Tkinter编写gui</h3>
-        <hr/>
-        <p class="article-more-link">
-          <a  href="/2015/03/17/The-Caesar-Cipher/#more">more >></a>
-        </p>
-      
-    </div>
-    
-    <div class="article-info">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Whatever/">Whatever</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gui/">gui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息安全程序设计/">信息安全程序设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密算法/">加密算法</a></li></ul>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="The-Caesar-Cipher-PART-II" data-title="The Caesar Cipher PART II" data-url="http://www.shady.com.cn/2015/03/20/The-Caesar-Cipher-PART-II/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"shadyzoz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
