@@ -8,7 +8,7 @@
   <meta name="description" content="Welcome to ZOZ">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shady's Blog">
-<meta property="og:url" content="http://www.shady.com.cn/tags/Python/index.html">
+<meta property="og:url" content="http://www.shady.com.cn/tags/Server/index.html">
 <meta property="og:site_name" content="Shady's Blog">
 <meta property="og:description" content="Welcome to ZOZ">
 <meta name="twitter:card" content="summary">
@@ -261,11 +261,11 @@
 
 
   
-    <article id="post-The-Permutation-Cipher" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-继续折腾amh之本地备份同步上传七牛空间" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/03/21/The-Permutation-Cipher/" class="article-date">
-  	<time datetime="2015-03-20T20:19:26.000Z" itemprop="datePublished">Mar 21 2015</time>
+      <a href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/" class="article-date">
+  	<time datetime="2015-02-27T08:19:40.000Z" itemprop="datePublished">Feb 27 2015</time>
 </a>
     </div>
   
@@ -278,7 +278,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/21/The-Permutation-Cipher/">The Permutation Cipher</a>
+      <a class="article-title" href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/">继续折腾amh之本地备份同步上传七牛空间</a>
     </h1>
   
 
@@ -287,79 +287,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>继续写置换密码，相比之前短学期写过的DES加密算法，这个确实不算什么。<br>python的切片确实是有意思，最初想用<code>list()</code>函数将从输入框获取的字符串转为数组再操作的，后来想想还是用切片会更好吧。<br>直接上代码</p>
-<h2 id="The_Permutation_Cipher">The Permutation Cipher</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Tkinter <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">()</span>:</span></span><br><span class="line">	x = <span class="number">0</span></span><br><span class="line">	EncryptKey = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">4</span>)</span><br><span class="line">	EncryptText = plaintext.get()</span><br><span class="line">	result = EncryptText</span><br><span class="line">	<span class="keyword">if</span> len(result) % <span class="number">8</span> != <span class="number">0</span>:</span><br><span class="line">		result += EncryptText[:len(result) % <span class="number">8</span>]</span><br><span class="line">		EncryptText = result</span><br><span class="line">	<span class="keyword">for</span> char <span class="keyword">in</span> EncryptText:</span><br><span class="line">		key = EncryptKey[x % <span class="number">8</span>]</span><br><span class="line">		order = key + <span class="number">8</span> * (x / <span class="number">8</span>) - <span class="number">1</span></span><br><span class="line">		result = result[:order] + char + result[order+<span class="number">1</span>:]</span><br><span class="line">		x += <span class="number">1</span></span><br><span class="line">	EncryptResult.set(result)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">()</span>:</span></span><br><span class="line">	x = <span class="number">0</span></span><br><span class="line">	DecryptKey = (<span class="number">5</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">3</span>)</span><br><span class="line">	result = EncryptResult.get()</span><br><span class="line">	<span class="keyword">for</span> char <span class="keyword">in</span> EncryptResult.get():</span><br><span class="line">		key = DecryptKey[x % <span class="number">8</span>]</span><br><span class="line">		order = key + <span class="number">8</span> * (x / <span class="number">8</span>) - <span class="number">1</span></span><br><span class="line">		result = result[:order] + char + result[order+<span class="number">1</span>:]</span><br><span class="line">		x += <span class="number">1</span></span><br><span class="line">	DecryptResult.set(result)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">about</span><span class="params">()</span>:</span></span><br><span class="line">    a = [<span class="number">72</span>, <span class="number">97</span>, <span class="number">99</span>, <span class="number">107</span>, <span class="number">101</span>, <span class="number">100</span>, <span class="number">32</span>, <span class="number">98</span>, <span class="number">121</span>, <span class="number">32</span>, <span class="number">83</span>, <span class="number">104</span>, <span class="number">97</span>, <span class="number">100</span>, <span class="number">121</span>]</span><br><span class="line">    key = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">        key += chr(i)</span><br><span class="line">    about = Label(root,text=key)</span><br><span class="line">    about.pack(side=BOTTOM)</span><br><span class="line"></span><br><span class="line">root = Tk()</span><br><span class="line">root.title(<span class="string">"The Permutation cipher - python"</span>)</span><br><span class="line">root.geometry(<span class="string">'600x400'</span>)</span><br><span class="line"></span><br><span class="line">head = Label(root,text=<span class="string">"The Permutation Cipher"</span>)</span><br><span class="line">head.pack(side=TOP)</span><br><span class="line"></span><br><span class="line"><span class="comment"># menubar for fun</span></span><br><span class="line">menubar = Menu(root)</span><br><span class="line">filemenu = Menu(menubar,tearoff=<span class="number">0</span>)</span><br><span class="line">filemenu.add_command(label=<span class="string">"About"</span>, command=about)</span><br><span class="line">menubar.add_cascade(label=<span class="string">"Help"</span>, menu=filemenu)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plaintext input</span></span><br><span class="line">plaintext = StringVar()</span><br><span class="line">entry = Entry(root,textvariable = plaintext, width=<span class="number">80</span>)</span><br><span class="line">plaintext.set(<span class="string">'input plaintext here'</span>)</span><br><span class="line">entry.pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># encrypt button</span></span><br><span class="line">Button(root, text=<span class="string">"encrypt"</span>, fg=<span class="string">"blue"</span>,bd=<span class="number">2</span>,width=<span class="number">20</span>,command=encrypt).pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># encrypt result</span></span><br><span class="line">EncryptResult = StringVar()</span><br><span class="line">Entry(root, width=<span class="number">80</span>, textvariable=EncryptResult, stat=<span class="string">"readonly"</span>).pack()</span><br><span class="line">EncryptResult.set(<span class="string">'encrypt result / input cyphertext here'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># decrypt button</span></span><br><span class="line">Button(root, text=<span class="string">"decrypt"</span>, fg=<span class="string">"blue"</span>,bd=<span class="number">2</span>,width=<span class="number">20</span>,command=decrypt).pack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># decrypt result</span></span><br><span class="line">DecryptResult = StringVar()</span><br><span class="line">Entry(root, width=<span class="number">80</span>, textvariable=DecryptResult, stat=<span class="string">"readonly"</span>).pack()</span><br><span class="line">DecryptResult.set(<span class="string">'decrypt result'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable menubar</span></span><br><span class="line">root.config(menu=menubar)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
-<p>睡觉了。。<br>早上十点，BCTF，努力突破200分。。。。。。</p>
-
+        <p>继续折腾amh，虽然amh有远程备份功能，不过对于只有一台vps的用户来说，备份只能保存到本地，万一服务器出现问题，备份了也没用，于是想到让备份同步上传到<a href="https://portal.qiniu.com/signup?code=3lqai8s9lgaj6">七牛空间</a>。<br>七牛的CDN加速做的相当不错的，作图床，成为标准用户可以把网页的js，css放上去访问速度肯定要比在自己服务器上快得多。</p>
+<p>修改的代码就两行</p>
+<h1 id="准备工作">准备工作</h1>
       
     </div>
     
     <div class="article-info article-info-index">
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gui/">gui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息安全程序设计/">信息安全程序设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密算法/">加密算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-The-Caesar-Cipher" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/03/17/The-Caesar-Cipher/" class="article-date">
-  	<time datetime="2015-03-16T19:37:50.000Z" itemprop="datePublished">Mar 17 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/17/The-Caesar-Cipher/">The Caesar Cipher</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一些废话">一些废话</h2><p>这也算加密算法？！就是个入门吧，凡事都从基础做起。<br>大学第一节公选课，吕老师的信息安全程序设计，晚去了3分钟，120人的大教室只空了不到5个座位。<br>上完课，5点多，回到寝室根本停不下来，着手写程序。不限语言，写一个gui界面的凯撒加密，要求步长可变，大小写、数字、符号可换。<br>毕竟PHP学的比较久，先PHP写起，差不多刚写完，室友拉着我一起去吃饭。一直以为时间是7点多，看看二餐、看看表快9点了，也是醉了，全然不知过了这么久。<br>回来把上学期活动报销的事还有换班长的事搞定，觉得写个web页有点不符合要求啊，还是拿python重写吧。</p>
-<h2 id="一些要点">一些要点</h2><h3 id="编码转换">编码转换</h3><p>php以及python不能像c语言那样直接对字符ASCII码进行加减，需要使用<code>ord()</code>函数讲字符转为ASCII码值，进行加减，再用<code>chr()</code>将数值转换会字符，此函数php与python的用法相同。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ord(char)</span><br><span class="line">chr(char)</span><br></pre></td></tr></table></figure>
-<h3 id="使用Tkinter编写gui">使用Tkinter编写gui</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Whatever/">Whatever</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gui/">gui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息安全程序设计/">信息安全程序设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密算法/">加密算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/">Server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2015/03/17/The-Caesar-Cipher/#more">more >></a>
+          <a  href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -375,11 +319,11 @@
 
 
   
-    <article id="post-rot13-base64-scripts-by-python" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-升级amh4-2面板nginex及PHP版本" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/03/16/rot13-base64-scripts-by-python/" class="article-date">
-  	<time datetime="2015-03-15T18:13:17.000Z" itemprop="datePublished">Mar 16 2015</time>
+      <a href="/2015/02/26/升级amh4-2面板nginex及PHP版本/" class="article-date">
+  	<time datetime="2015-02-26T08:19:40.000Z" itemprop="datePublished">Feb 26 2015</time>
 </a>
     </div>
   
@@ -392,7 +336,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/16/rot13-base64-scripts-by-python/">rot13 &amp; base64 scripts by python</a>
+      <a class="article-title" href="/2015/02/26/升级amh4-2面板nginex及PHP版本/">升级amh4.2面板Nginx及PHP版本</a>
     </h1>
   
 
@@ -401,23 +345,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Came across a few super useful python scripts, when gearing up for the coming CTFs.</p>
-<h1 id="rot13">rot13</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rot13</span><span class="params">(s)</span>:</span></span><br><span class="line">    d=&#123;chr(i+c) : chr((i+<span class="number">13</span>) % <span class="number">26</span> + c) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">26</span>) <span class="keyword">for</span> c <span class="keyword">in</span> (<span class="number">65</span>, <span class="number">97</span>)&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join([d.get(c, c) <span class="keyword">for</span> c <span class="keyword">in</span> s])</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> rot13(<span class="string">'stringtorot'</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="base64">base64</h1>
+        <p>对于我这种Linux小白来说，用面板来对vps进行管理非常方便，不过由于amh4.2自带的nginx1.4、php5.3、mysql5.5版本都比较低，看了下安装的shell脚本，觉得能改，于是开始着手修改。</p>
+<p>经历也是曲折，尝试了不同的版本组合，最终的到组合是tengine2.1.0（基于nginx）、php5.5.22、mysql5.5（mysql没升级）。<br>使用vps：阿里云单核1G，CentOS6.5 x32，ubuntu12.04也测试过，同样可以。14.04官方未说明支持，故未测试。<br>所有修改都是基于amh官网获得的amh.sh进行修改的。github上<a href="https://github.com/maicong/amh-4.2">麦葱修改版</a>应该是不错的修改版，不过我尝试过，并未成功，原因不详，自己重新修改过也未成功，因为急于上线，未深究原因。</p>
+<h1 id="修改方法">修改方法</h1><p>下载并打开shell安装脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://amh.sh/file/AMH/<span class="number">4.2</span>/amh.sh</span><br><span class="line">$ vim amh.sh</span><br></pre></td></tr></table></figure>
       
     </div>
     
     <div class="article-info article-info-index">
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密算法/">加密算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/">Server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2015/03/16/rot13-base64-scripts-by-python/#more">more >></a>
+          <a  href="/2015/02/26/升级amh4-2面板nginex及PHP版本/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
