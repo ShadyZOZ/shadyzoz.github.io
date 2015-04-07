@@ -3,23 +3,44 @@
 <head>
   <meta charset="utf-8">
   
-  <title>转接google二维码api | Shady&#39;s Blog</title>
+  <title>tools | Shady&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="新版微信客户端支持了二维码解析，觉得是时候在微信平台里做一个生成二维码的api了（其实是放假无聊，自己脑洞大开=_=）
-太懒，直接用google的api，放到日本的空间用的灰常开心，到阿里云就不开心了。好吧，哪就基于google的自己再写一个api放在DO上好了。。。。。。
-正好打算自己写一个工具集。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="转接google二维码api">
-<meta property="og:url" content="http://www.shadyzoz.com/2015/04/06/转接google二维码api/index.html">
+  <meta name="description" content="I’ve come up with this idea, to write my own toolbox, for study &amp;amp; for fun.
+ToolBox首页
+Tools
+QR code
+
+QR code请求地址： http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;amp;chl=hello
+参数
+
+
+widht">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tools">
+<meta property="og:url" content="http://www.shadyzoz.com/tools/index.html">
 <meta property="og:site_name" content="Shady's Blog">
-<meta property="og:description" content="新版微信客户端支持了二维码解析，觉得是时候在微信平台里做一个生成二维码的api了（其实是放假无聊，自己脑洞大开=_=）
-太懒，直接用google的api，放到日本的空间用的灰常开心，到阿里云就不开心了。好吧，哪就基于google的自己再写一个api放在DO上好了。。。。。。
-正好打算自己写一个工具集。">
+<meta property="og:description" content="I’ve come up with this idea, to write my own toolbox, for study &amp;amp; for fun.
+ToolBox首页
+Tools
+QR code
+
+QR code请求地址： http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;amp;chl=hello
+参数
+
+
+widht">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="转接google二维码api">
-<meta name="twitter:description" content="新版微信客户端支持了二维码解析，觉得是时候在微信平台里做一个生成二维码的api了（其实是放假无聊，自己脑洞大开=_=）
-太懒，直接用google的api，放到日本的空间用的灰常开心，到阿里云就不开心了。好吧，哪就基于google的自己再写一个api放在DO上好了。。。。。。
-正好打算自己写一个工具集。">
+<meta name="twitter:title" content="tools">
+<meta name="twitter:description" content="I’ve come up with this idea, to write my own toolbox, for study &amp;amp; for fun.
+ToolBox首页
+Tools
+QR code
+
+QR code请求地址： http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;amp;chl=hello
+参数
+
+
+widht">
   
   
     <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
@@ -190,11 +211,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-转接google二维码api" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/04/06/转接google二维码api/" class="article-date">
-  	<time datetime="2015-04-06T11:20:51.000Z" itemprop="datePublished">Apr 6 2015</time>
+      <a href="/tools/index.html" class="article-date">
+  	<time datetime="2015-04-07T00:33:45.000Z" itemprop="datePublished">Apr 7 2015</time>
 </a>
     </div>
   
@@ -207,7 +228,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      转接google二维码api
+      tools
     </h1>
   
 
@@ -215,10 +236,6 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ToolBox/">ToolBox</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -227,37 +244,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>新版微信客户端支持了二维码解析，觉得是时候在微信平台里做一个生成二维码的api了（其实是放假无聊，自己脑洞大开=_=）</p>
-<p>太懒，直接用google的api，放到日本的空间用的灰常开心，到阿里云就不开心了。好吧，哪就基于google的自己再写一个api放在DO上好了。。。。。。</p>
-<p>正好打算自己写一个工具集。</p>
-<a id="more"></a>
-<h2 id="google_chart">google chart</h2><p><a href="https://google-developers.appspot.com/chart/infographics/docs/overview" target="_blank" rel="external">google文档</a> 需要科学上网才能看。。</p>
-<p>其实很简单</p>
-<p><code>https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=Hello%20world</code></p>
-<p>摘自文档</p>
-<blockquote>
-<ul>
-<li><p><a href="https://chart.googleapis.com/chart?" target="_blank" rel="external">https://chart.googleapis.com/chart?</a> - All infographic URLs start with this root URL, followed by one or more parameter/value pairs. The required and optional parameters are specific to each image; read your image documentation.</p>
-</li>
-<li><p>chs - Size of the image in pixels, in the format <code>width</code>x<code>height</code></p>
-</li>
-<li>cht - Type of image: ‘qr’ means QR code.</li>
-<li>chl - The data to encode. Must be URL-encoded.</li>
+        <p>I’ve come up with this idea, to write my own toolbox, for study &amp; for fun.</p>
+<p><a href="http://tools.shadyzoz.com" target="_blank" rel="external">ToolBox首页</a></p>
+<h3 id="Tools">Tools</h3><ul>
+<li><a href="#qr-code">QR code</a></li>
 </ul>
-</blockquote>
-<p>简单翻译。。</p>
-<blockquote>
-<ul>
-<li><p><a href="https://chart.googleapis.com/chart?" target="_blank" rel="external">https://chart.googleapis.com/chart?</a> - 请求的根地址，跟随不同参数，有不同的效果哦～详情咨询阅读文档。。</p>
-</li>
-<li><p>chs - 控制图像大小，形式：<code>width</code>x<code>height</code></p>
-</li>
-<li>cht - 图像类型，<code>qr</code>代表二维码</li>
-<li>chl - 需要加密的内容</li>
-</ul>
-</blockquote>
-<h2 id="shady_api">shady api</h2><p>很简单，用get传递参数，然后将生成内容和图像大小作为一个字符串进行md5加密，命名png文件,存到本地。</p>
-<p>api地址：<a href="http://tools.shadyzoz.com/qr/qr_google.php?" target="_blank" rel="external">http://tools.shadyzoz.com/qr/qr_google.php?</a></p>
+<h4 id="QR_code">QR code</h4><p>请求地址： <a href="http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;chl=hello" target="_blank" rel="external">http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;chl=hello</a></p>
 <p>参数</p>
 <blockquote>
 <ul>
@@ -265,11 +257,11 @@
 <li>chl - 内容</li>
 </ul>
 </blockquote>
-<p>qr_google.php</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$chl</span> = <span class="variable">$_GET</span>[<span class="string">"chl"</span>];</span><br><span class="line"><span class="variable">$widhtHeight</span> = <span class="variable">$_GET</span>[<span class="string">"widhtHeight"</span>];</span><br><span class="line"><span class="variable">$name</span> = md5(<span class="variable">$chl</span>.<span class="variable">$widhtHeight</span>);</span><br><span class="line"><span class="variable">$fileurl</span> = <span class="string">"./db/&#123;$name&#125;.png"</span>;</span><br><span class="line"><span class="keyword">if</span> (file_exists(<span class="variable">$fileurl</span>)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;html&gt;&lt;body style='margin: 0px'&gt;&lt;img style='-webkit-user-select:none; display:block; margin:auto;' src=&#123;$fileurl&#125;&gt;&lt;/body&gt;&lt;/html&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$url</span> = <span class="string">"https://chart.googleapis.com/chart?cht=qr&amp;chs=&#123;$widhtHeight&#125;x&#123;$widhtHeight&#125;&amp;chl=&#123;$chl&#125;"</span>;</span><br><span class="line">    <span class="variable">$data</span> = file_get_contents(<span class="variable">$url</span>);</span><br><span class="line">    <span class="variable">$fp</span> = fopen(<span class="variable">$fileurl</span>, <span class="string">'a'</span>);</span><br><span class="line">    fwrite(<span class="variable">$fp</span>, <span class="variable">$data</span>);</span><br><span class="line">    fclose(<span class="variable">$fp</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;html&gt;&lt;body style='margin: 0px'&gt;&lt;img style='-webkit-user-select:none; display:block; margin:auto;' src=&#123;$fileurl&#125;&gt;&lt;/body&gt;&lt;/html&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="示例">示例</h2><p>请求地址： <a href="http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;chl=hello" target="_blank" rel="external">http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;chl=hello</a></p>
 <p>二维码库： <a href="http://tools.shadyzoz.com/qr/db/47d529b39d63df9f74aec6f33bab4fb4.png" target="_blank" rel="external">http://tools.shadyzoz.com/qr/db/47d529b39d63df9f74aec6f33bab4fb4.png</a></p>
+<p>图片以内容＋大小的md5值命名。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md5(hello300) == <span class="string">'47d529b39d63df9f74aec6f33bab4fb4'</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>More will be coming…</p>
 
       
     </div>
@@ -277,16 +269,6 @@
   </div>
   
     
-<nav id="article-nav">
-  
-  
-    <a href="/2015/03/26/Django搞起/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Django搞起</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
   
 </article>
 
@@ -310,7 +292,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="转接google二维码api" data-title="转接google二维码api" data-url="http://www.shadyzoz.com/2015/04/06/转接google二维码api/"></div>
+	<div class="ds-thread" data-thread-key="undefined" data-title="tools" data-url="http://www.shadyzoz.com/tools/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
