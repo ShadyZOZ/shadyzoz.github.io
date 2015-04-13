@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Shady&#39;s Blog</title>
+  <title>利用john the ripper暴力破解linux密码 | Shady&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to ZOZ">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shady's Blog">
-<meta property="og:url" content="http://www.shadyzoz.com/archives/2015/page/2/index.html">
+  <meta name="description" content="现在的linux系统密码大多都用的sha512并加盐，利用john+字典的方式可以很方便的跑出来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用john the ripper暴力破解linux密码">
+<meta property="og:url" content="http://www.shadyzoz.com/2015/04/13/利用john-the-ripper暴力破解linux密码/index.html">
 <meta property="og:site_name" content="Shady's Blog">
-<meta property="og:description" content="Welcome to ZOZ">
+<meta property="og:description" content="现在的linux系统密码大多都用的sha512并加盐，利用john+字典的方式可以很方便的跑出来。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shady's Blog">
-<meta name="twitter:description" content="Welcome to ZOZ">
+<meta name="twitter:title" content="利用john the ripper暴力破解linux密码">
+<meta name="twitter:description" content="现在的linux系统密码大多都用的sha512并加盐，利用john+字典的方式可以很方便的跑出来。">
   
   
     <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
@@ -184,13 +184,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-升级amh4-2面板nginex及PHP版本" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-利用john-the-ripper暴力破解linux密码" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/02/26/升级amh4-2面板nginex及PHP版本/" class="article-date">
-  	<time datetime="2015-02-26T08:19:40.000Z" itemprop="datePublished">Feb 26 2015</time>
+      <a href="/2015/04/13/利用john-the-ripper暴力破解linux密码/" class="article-date">
+  	<time datetime="2015-04-13T15:54:09.000Z" itemprop="datePublished">Apr 13 2015</time>
 </a>
     </div>
   
@@ -202,111 +200,96 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/26/升级amh4-2面板nginex及PHP版本/">升级amh4.2面板Nginx及PHP版本</a>
+    <h1 class="article-title" itemprop="name">
+      利用john the ripper暴力破解linux密码
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对于我这种Linux小白来说，用面板来对vps进行管理非常方便，不过由于amh4.2自带的nginx1.4、php5.3、mysql5.5版本都比较低，看了下安装的shell脚本，觉得能改，于是开始着手修改。</p>
-<p>经历也是曲折，尝试了不同的版本组合，最终的到组合是tengine2.1.0（基于nginx）、php5.5.22、mysql5.5（mysql没升级）。<br>使用vps：阿里云单核1G，CentOS6.5 x32，ubuntu12.04也测试过，同样可以。14.04官方未说明支持，故未测试。<br>所有修改都是基于amh官网获得的amh.sh进行修改的。github上<a href="https://github.com/maicong/amh-4.2">麦葱修改版</a>应该是不错的修改版，不过我尝试过，并未成功，原因不详，自己重新修改过也未成功，因为急于上线，未深究原因。</p>
-<h1 id="修改方法">修改方法</h1><p>下载并打开shell安装脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://amh.sh/file/AMH/<span class="number">4.2</span>/amh.sh</span><br><span class="line">$ vim amh.sh</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/">Server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/02/26/升级amh4-2面板nginex及PHP版本/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/02/25/hello-world/" class="article-date">
-  	<time datetime="2015-02-25T08:09:40.000Z" itemprop="datePublished">Feb 25 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+      <div class="article-info article-info-post">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/25/hello-world/">My First Post - Getting Started with Hexo</a>
-    </h1>
-  
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密算法/">加密算法</a></li></ul>
+	</div>
 
-      </header>
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本打算使用Jekyll搭建静态博客的，不过因为Jekyll的生成速度有点慢，尤其是文章多了之后（我能不能坚持写到那么多还是个问题），就听了DDog同学的建议，转向同样基于node.js的<a href="http://hexo.io">Hexo</a></p>
-<h2 id="Quick_Start">Quick Start</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Whatever/">Whatever</a></li></ul>
-	</div>
+        <p>现在的linux系统密码大多都用的sha512并加盐，利用john+字典的方式可以很方便的跑出来。</p>
+<a id="more"></a>
+<h2 id="安装john">安装john</h2><p>ubuntu/debian为例</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="keyword">get</span> install john</span><br></pre></td></tr></table></figure>
+<h2 id="提取密码文件待破解">提取密码文件待破解</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo unshadow <span class="regexp">/etc/</span>passwd <span class="regexp">/etc/</span>shadow &gt; tocrack</span><br></pre></td></tr></table></figure>
+<h2 id="破解">破解</h2><p>利用字典暴力跑密码，破解几率取决于你的字典质量与对方的密码质量。</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">$</span> <span class="comment">john</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">woedlist=wordlist</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">rules</span> <span class="comment">tocrack</span></span><br></pre></td></tr></table></figure>
+<p>如果破解成功，可以看到密码，并停止进程。</p>
+<h2 id="查看密码">查看密码</h2><p>john可以对同一系统下多用户进行破解，并可以随时查看密码。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ john <span class="comment">--show tocrack</span></span><br></pre></td></tr></table></figure>
 
       
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/02/25/hello-world/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/04/06/转接google二维码api/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">转接google二维码api</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="利用john-the-ripper暴力破解linux密码" data-title="利用john the ripper暴力破解linux密码" data-url="http://www.shadyzoz.com/2015/04/13/利用john-the-ripper暴力破解linux密码/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"shadyzoz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2015/">&laquo; Prev</a><a class="page-number" href="/archives/2015/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
 </div>
       <footer id="footer">
   <div class="outer">
