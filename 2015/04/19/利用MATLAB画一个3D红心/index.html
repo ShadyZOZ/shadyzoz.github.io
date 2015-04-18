@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Shady&#39;s Blog</title>
+  <title>利用MATLAB画一个3D红心 | Shady&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to ZOZ">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shady's Blog">
-<meta property="og:url" content="http://www.shadyzoz.com/archives/2015/page/2/index.html">
+  <meta name="description" content="受公关部之托，要一个在交流会上体现专业特色的装13代码，画颗红心。。 想来想去果断matlab啊
+代码1234567[x,y,z]=meshgrid(linspace(-1.3,1.3));s=(x.^2 + (9/4)*y.^2 + z.^2 - 1).^3 - x.^2.*z.^3 - (1/9)*y.^2.*z.^3;fv=isosurface(x,y,z,s,0);p=patch(fv,&apos;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用MATLAB画一个3D红心">
+<meta property="og:url" content="http://www.shadyzoz.com/2015/04/19/利用MATLAB画一个3D红心/index.html">
 <meta property="og:site_name" content="Shady's Blog">
-<meta property="og:description" content="Welcome to ZOZ">
+<meta property="og:description" content="受公关部之托，要一个在交流会上体现专业特色的装13代码，画颗红心。。 想来想去果断matlab啊
+代码1234567[x,y,z]=meshgrid(linspace(-1.3,1.3));s=(x.^2 + (9/4)*y.^2 + z.^2 - 1).^3 - x.^2.*z.^3 - (1/9)*y.^2.*z.^3;fv=isosurface(x,y,z,s,0);p=patch(fv,&apos;">
+<meta property="og:image" content="http://7vzqss.com1.z0.glb.clouddn.com/heart.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shady's Blog">
-<meta name="twitter:description" content="Welcome to ZOZ">
+<meta name="twitter:title" content="利用MATLAB画一个3D红心">
+<meta name="twitter:description" content="受公关部之托，要一个在交流会上体现专业特色的装13代码，画颗红心。。 想来想去果断matlab啊
+代码1234567[x,y,z]=meshgrid(linspace(-1.3,1.3));s=(x.^2 + (9/4)*y.^2 + z.^2 - 1).^3 - x.^2.*z.^3 - (1/9)*y.^2.*z.^3;fv=isosurface(x,y,z,s,0);p=patch(fv,&apos;">
   
   
     <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
@@ -184,13 +188,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-继续折腾amh之本地备份同步上传七牛空间" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-利用MATLAB画一个3D红心" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/" class="article-date">
-  	<time datetime="2015-02-27T08:19:40.000Z" itemprop="datePublished">Feb 27 2015</time>
+      <a href="/2015/04/19/利用MATLAB画一个3D红心/" class="article-date">
+  	<time datetime="2015-04-18T16:19:08.000Z" itemprop="datePublished">Apr 19 2015</time>
 </a>
     </div>
   
@@ -202,169 +204,89 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/">继续折腾amh之本地备份同步上传七牛空间</a>
+    <h1 class="article-title" itemprop="name">
+      利用MATLAB画一个3D红心
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>继续折腾amh，虽然amh有远程备份功能，不过对于只有一台vps的用户来说，备份只能保存到本地，万一服务器出现问题，备份了也没用，于是想到让备份同步上传到<a href="https://portal.qiniu.com/signup?code=3lqai8s9lgaj6">七牛空间</a>。<br>七牛的CDN加速做的相当不错的，作图床，成为标准用户可以把网页的js，css放上去访问速度肯定要比在自己服务器上快得多。</p>
-<p>修改的代码就两行</p>
-<h1 id="准备工作">准备工作</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/">Server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/02/27/继续折腾amh之本地备份同步上传七牛空间/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-升级amh4-2面板nginex及PHP版本" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/02/26/升级amh4-2面板nginex及PHP版本/" class="article-date">
-  	<time datetime="2015-02-26T08:19:40.000Z" itemprop="datePublished">Feb 26 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+      <div class="article-info article-info-post">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/26/升级amh4-2面板nginex及PHP版本/">升级amh4.2面板Nginx及PHP版本</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对于我这种Linux小白来说，用面板来对vps进行管理非常方便，不过由于amh4.2自带的nginx1.4、php5.3、mysql5.5版本都比较低，看了下安装的shell脚本，觉得能改，于是开始着手修改。</p>
-<p>经历也是曲折，尝试了不同的版本组合，最终的到组合是tengine2.1.0（基于nginx）、php5.5.22、mysql5.5（mysql没升级）。<br>使用vps：阿里云单核1G，CentOS6.5 x32，ubuntu12.04也测试过，同样可以。14.04官方未说明支持，故未测试。<br>所有修改都是基于amh官网获得的amh.sh进行修改的。github上<a href="https://github.com/maicong/amh-4.2">麦葱修改版</a>应该是不错的修改版，不过我尝试过，并未成功，原因不详，自己重新修改过也未成功，因为急于上线，未深究原因。</p>
-<h1 id="修改方法">修改方法</h1><p>下载并打开shell安装脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://amh.sh/file/AMH/<span class="number">4.2</span>/amh.sh</span><br><span class="line">$ vim amh.sh</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/">Server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
 	</div>
 
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/02/26/升级amh4-2面板nginex及PHP版本/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/02/25/hello-world/" class="article-date">
-  	<time datetime="2015-02-25T08:09:40.000Z" itemprop="datePublished">Feb 25 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/25/hello-world/">My First Post - Getting Started with Hexo</a>
-    </h1>
-  
 
-      </header>
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本打算使用Jekyll搭建静态博客的，不过因为Jekyll的生成速度有点慢，尤其是文章多了之后（我能不能坚持写到那么多还是个问题），就听了DDog同学的建议，转向同样基于node.js的<a href="http://hexo.io">Hexo</a></p>
-<h2 id="Quick_Start">Quick Start</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Whatever/">Whatever</a></li></ul>
-	</div>
+        <p>受公关部之托，要一个在交流会上体现专业特色的装13代码，画颗红心。。 想来想去果断matlab啊</p>
+<h2 id="代码">代码</h2><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">x</span>,y,z]=meshgrid<span class="list">(<span class="keyword">linspace</span><span class="list">(<span class="keyword">-1.3</span>,<span class="number">1.3</span>)</span>)</span><span class="comment">;</span></span><br><span class="line">s=<span class="list">(<span class="keyword">x.^2</span> + <span class="list">(<span class="keyword">9/4</span>)</span>*y.^2 + z.^2 - <span class="number">1</span>)</span>.^3 - x.^2.*z.^3 - <span class="list">(<span class="keyword">1/9</span>)</span>*y.^2.*z.^3<span class="comment">;</span></span><br><span class="line">fv=isosurface<span class="list">(<span class="keyword">x</span>,y,z,s,<span class="number">0</span>)</span><span class="comment">;</span></span><br><span class="line">p=patch<span class="list">(<span class="keyword">fv</span>,<span class="variable">'FaceColor</span>',<span class="variable">'R</span>',<span class="variable">'EdgeColor</span>',<span class="variable">'none</span>')</span><span class="comment">;</span></span><br><span class="line">axis equal<span class="comment">;</span></span><br><span class="line">camlight left<span class="comment">;camlight; lighting gouraud;</span></span><br><span class="line">view<span class="list">(<span class="keyword">-20</span>,<span class="number">35</span>)</span><span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="效果图">效果图</h2><p><img src="http://7vzqss.com1.z0.glb.clouddn.com/heart.png" alt="heart"></p>
 
       
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/02/25/hello-world/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/04/13/利用john-the-ripper暴力破解linux密码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用john the ripper暴力破解linux密码</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="利用MATLAB画一个3D红心" data-title="利用MATLAB画一个3D红心" data-url="http://www.shadyzoz.com/2015/04/19/利用MATLAB画一个3D红心/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"shadyzoz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2015/">&laquo; Prev</a><a class="page-number" href="/archives/2015/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
 </div>
       <footer id="footer">
   <div class="outer">
