@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Shady&#39;s Blog</title>
+  <title>python解数独算法 | Shady&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Welcome to ZOZ">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shady's Blog">
-<meta property="og:url" content="http://www.shadyzoz.com/tags/MATLAB/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python解数独算法">
+<meta property="og:url" content="http://www.shadyzoz.com/2015/06/16/python解数独算法/index.html">
 <meta property="og:site_name" content="Shady's Blog">
 <meta property="og:description" content="Welcome to ZOZ">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shady's Blog">
+<meta name="twitter:title" content="python解数独算法">
 <meta name="twitter:description" content="Welcome to ZOZ">
   
   
@@ -184,13 +184,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-利用MATLAB画一个3D红心" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-python解数独算法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/04/19/利用MATLAB画一个3D红心/" class="article-date">
-  	<time datetime="2015-04-18T16:19:08.000Z" itemprop="datePublished">Apr 19 2015</time>
+      <a href="/2015/06/16/python解数独算法/" class="article-date">
+  	<time datetime="2015-06-15T17:16:56.000Z" itemprop="datePublished">Jun 16 2015</time>
 </a>
     </div>
   
@@ -202,46 +200,86 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/19/利用MATLAB画一个3D红心/">利用MATLAB画一个3D红心</a>
+    <h1 class="article-title" itemprop="name">
+      python解数独算法
     </h1>
   
 
       </header>
       
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>受公关部之托，要一个在交流会上体现专业特色的装13代码，画颗红心。。 想来想去果断matlab啊</p>
-<h2 id="代码">代码</h2><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">x</span>, y, z]=meshgrid<span class="list">(<span class="keyword">linspace</span><span class="list">(<span class="keyword">-1.3</span>, <span class="number">1.3</span>)</span>)</span><span class="comment">;</span></span><br><span class="line">s=<span class="list">(<span class="keyword">x.^2</span> + <span class="list">(<span class="keyword">9/4</span>)</span> * y.^2 + z.^2 - <span class="number">1</span>)</span>.^3 - x.^2.*z.^3 - <span class="list">(<span class="keyword">1/9</span>)</span> * y.^2.*z.^3<span class="comment">;</span></span><br><span class="line">fv=isosurface<span class="list">(<span class="keyword">x</span>, y, z, s, <span class="number">0</span>)</span><span class="comment">;</span></span><br><span class="line">p=patch<span class="list">(<span class="keyword">fv</span>, <span class="variable">'FaceColor</span>', <span class="variable">'R</span>', <span class="variable">'EdgeColor</span>', <span class="variable">'none</span>')</span><span class="comment">;</span></span><br><span class="line">axis equal<span class="comment">;</span></span><br><span class="line">camlight left<span class="comment">;</span></span><br><span class="line">camlight<span class="comment">;</span></span><br><span class="line">lighting gouraud<span class="comment">;</span></span><br><span class="line">view<span class="list">(<span class="keyword">-20</span>, <span class="number">35</span>)</span><span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="效果图">效果图</h2><p><img src="http://7vzqss.com1.z0.glb.clouddn.com/heart.png" alt="heart"></p>
-
+        
       
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/06/05/python基于以及UDP协议的双向通信/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python基于以及UDP协议的双向通信</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="python解数独算法" data-title="python解数独算法" data-url="http://www.shadyzoz.com/2015/06/16/python解数独算法/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"shadyzoz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-  
-  
+
+
 </div>
       <footer id="footer">
   <div class="outer">
