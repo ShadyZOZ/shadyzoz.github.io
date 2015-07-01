@@ -3,23 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>About Me | Shady&#39;s Blog</title>
+  <title>Learning Notes for Swift | Shady&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Email: shadyzoz@163.com
-
-Who am I班长美剧迷half a geek学生会主席信息安全在读辩论忠实爱好者CTF只拿到200分的渣渣坚信 coding change the world摇滚、说唱粉丝，大爱LP、Muse&amp;amp;Eminem">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About Me">
-<meta property="og:url" content="http://www.shadyzoz.com/about/index.html">
+  <meta name="description" content="Notes while learning iOS developing using swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learning Notes for Swift">
+<meta property="og:url" content="http://www.shadyzoz.com/2015/07/02/Learning-Notes-for-Swift/index.html">
 <meta property="og:site_name" content="Shady's Blog">
-<meta property="og:description" content="Email: shadyzoz@163.com
-
-Who am I班长美剧迷half a geek学生会主席信息安全在读辩论忠实爱好者CTF只拿到200分的渣渣坚信 coding change the world摇滚、说唱粉丝，大爱LP、Muse&amp;amp;Eminem">
+<meta property="og:description" content="Notes while learning iOS developing using swift">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Me">
-<meta name="twitter:description" content="Email: shadyzoz@163.com
-
-Who am I班长美剧迷half a geek学生会主席信息安全在读辩论忠实爱好者CTF只拿到200分的渣渣坚信 coding change the world摇滚、说唱粉丝，大爱LP、Muse&amp;amp;Eminem">
+<meta name="twitter:title" content="Learning Notes for Swift">
+<meta name="twitter:description" content="Notes while learning iOS developing using swift">
   
   
     <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
@@ -190,11 +184,11 @@ Who am I班长美剧迷half a geek学生会主席信息安全在读辩论忠实�
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Learning-Notes-for-Swift" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/about/index.html" class="article-date">
-  	<time datetime="2015-03-10T13:24:25.000Z" itemprop="datePublished">Mar 10 2015</time>
+      <a href="/2015/07/02/Learning-Notes-for-Swift/" class="article-date">
+  	<time datetime="2015-07-01T21:14:12.000Z" itemprop="datePublished">Jul 2 2015</time>
 </a>
     </div>
   
@@ -207,7 +201,7 @@ Who am I班长美剧迷half a geek学生会主席信息安全在读辩论忠实�
         
   
     <h1 class="article-title" itemprop="name">
-      About Me
+      Learning Notes for Swift
     </h1>
   
 
@@ -215,6 +209,10 @@ Who am I班长美剧迷half a geek学生会主席信息安全在读辩论忠实�
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -223,9 +221,28 @@ Who am I班长美剧迷half a geek学生会主席信息安全在读辩论忠实�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Email: shadyzoz@163.com</p>
+        <p>Notes while learning iOS developing using swift</p>
+<a id="more"></a>
+<h1 id="textField中的一些属性">textField中的一些属性</h1><h3 id="Swift中自定义颜色">Swift中自定义颜色</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// RGB模式 参数是浮点数 = 十进制值/255 或者0x开头的16进制书</span></span><br><span class="line"><span class="type">UIColor</span>(red: &lt;#<span class="type">CGFloat</span>#&gt;, green: &lt;#<span class="type">CGFloat</span>#&gt;, blue: &lt;#<span class="type">CGFloat</span>#&gt;, alpha: &lt;#<span class="type">CGFloat</span>#&gt;)</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="Who_am_I">Who am I</h2><p>班长<br>美剧迷<br>half a geek<br>学生会主席<br>信息安全在读<br>辩论忠实爱好者<br>CTF只拿到200分的渣渣<br>坚信 coding change the world<br>摇滚、说唱粉丝，大爱<strong>LP</strong>、<strong>Muse</strong>&amp;<strong>Eminem</strong></p>
+<h3 id="textField中键盘收起/弹出">textField中键盘收起/弹出</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 弹出</span></span><br><span class="line">textField.becomeFirstResponder()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 收起</span></span><br><span class="line">textField.resignFirstResponder()</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="点“返回”收回键盘">点“返回”收回键盘</h3><ol>
+<li><p>类申明中添加<code>UITextFieldDelegate</code>协议</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span>, <span class="title">UITextFieldDelegate</span> </span>&#123;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>textField设置delegate</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textField.delegate = <span class="keyword">self</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在类中添加<code>textFieldShouldReturn</code>方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">textFieldShouldReturn</span><span class="params">(textField: UITextField)</span> -&gt; <span class="title">Bool</span> </span>&#123;</span><br><span class="line">    textField.resignFirstResponder()</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h1 id="Int,_Double,_String_与_NSString的转换">Int, Double, String 与 NSString的转换</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// declare variables</span></span><br><span class="line"><span class="keyword">var</span> str:<span class="type">String</span> = <span class="string">"123"</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">NSInt</span>:<span class="type">NSString</span> = <span class="string">"11"</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">NSFloat</span>:<span class="type">NSString</span> = <span class="string">"12.3"</span></span><br><span class="line"><span class="keyword">var</span> double:<span class="type">Double</span> = <span class="number">12.4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String to NSString</span></span><br><span class="line">str <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String to Int</span></span><br><span class="line">str.toInt()</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSString to Int</span></span><br><span class="line"><span class="type">NSInt</span>.intValue</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSString to Double</span></span><br><span class="line"><span class="type">NSFloat</span>.doubleValue</span><br><span class="line"></span><br><span class="line"><span class="comment">// Double to NSString</span></span><br><span class="line"><span class="type">NSString</span>(format:<span class="string">"%.2f"</span>, double) <span class="keyword">as</span> <span class="type">String</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Double to Int</span></span><br><span class="line"><span class="type">Int</span>(<span class="number">12.4</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="view">view</h1><h3 id="获取视图宽高">获取视图宽高</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> width = <span class="type">CGRectGetWidth</span>(<span class="keyword">self</span>.view.bounds)</span><br><span class="line"><span class="keyword">var</span> height = <span class="type">CGRectGetHeight</span>(<span class="keyword">self</span>.view.bounds)</span><br></pre></td></tr></table></figure>
+<hr>
 
       
     </div>
@@ -233,6 +250,16 @@ Who am I班长美剧迷half a geek学生会主席信息安全在读辩论忠实�
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2015/06/05/python基于以及UDP协议的双向通信/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python基于以及UDP协议的双向通信</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -256,7 +283,7 @@ Who am I班长美剧迷half a geek学生会主席信息安全在读辩论忠实�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="About Me" data-url="http://www.shadyzoz.com/about/index.html"></div>
+	<div class="ds-thread" data-thread-key="Learning-Notes-for-Swift" data-title="Learning Notes for Swift" data-url="http://www.shadyzoz.com/2015/07/02/Learning-Notes-for-Swift/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
