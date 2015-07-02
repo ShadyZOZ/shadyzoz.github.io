@@ -3,35 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ToolBox | Shady&#39;s Blog</title>
+  <title>swift中隐藏键盘的两种方法 | Shady&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I’ve come up with this idea, to write my own toolbox, for study &amp;amp; for fun.
-ToolBox首页
-ToolsQR code请求地址： http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;amp;chl=hello
-参数
-
-
-widhtHeight - 图">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ToolBox">
-<meta property="og:url" content="http://www.shadyzoz.com/tools/index.html">
+  <meta name="description" content="textField为例swift中隐藏键盘的两种方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift中隐藏键盘的两种方法">
+<meta property="og:url" content="http://www.shadyzoz.com/2015/07/03/swift中隐藏键盘的两种方法/index.html">
 <meta property="og:site_name" content="Shady's Blog">
-<meta property="og:description" content="I’ve come up with this idea, to write my own toolbox, for study &amp;amp; for fun.
-ToolBox首页
-ToolsQR code请求地址： http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;amp;chl=hello
-参数
-
-
-widhtHeight - 图">
+<meta property="og:description" content="textField为例swift中隐藏键盘的两种方法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ToolBox">
-<meta name="twitter:description" content="I’ve come up with this idea, to write my own toolbox, for study &amp;amp; for fun.
-ToolBox首页
-ToolsQR code请求地址： http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;amp;chl=hello
-参数
-
-
-widhtHeight - 图">
+<meta name="twitter:title" content="swift中隐藏键盘的两种方法">
+<meta name="twitter:description" content="textField为例swift中隐藏键盘的两种方法">
   
   
     <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
@@ -202,11 +184,11 @@ widhtHeight - 图">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-swift中隐藏键盘的两种方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tools/index.html" class="article-date">
-  	<time datetime="2015-04-07T00:33:45.000Z" itemprop="datePublished">Apr 7 2015</time>
+      <a href="/2015/07/03/swift中隐藏键盘的两种方法/" class="article-date">
+  	<time datetime="2015-07-02T16:24:09.000Z" itemprop="datePublished">Jul 3 2015</time>
 </a>
     </div>
   
@@ -219,7 +201,7 @@ widhtHeight - 图">
         
   
     <h1 class="article-title" itemprop="name">
-      ToolBox
+      swift中隐藏键盘的两种方法
     </h1>
   
 
@@ -227,6 +209,10 @@ widhtHeight - 图">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -235,23 +221,22 @@ widhtHeight - 图">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I’ve come up with this idea, to write my own toolbox, for study &amp; for fun.</p>
-<p><a href="http://tools.shadyzoz.com" target="_blank" rel="external">ToolBox首页</a></p>
-<h2 id="Tools">Tools</h2><h3 id="QR_code">QR code</h3><p>请求地址： <a href="http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;chl=hello" target="_blank" rel="external">http://tools.shadyzoz.com/qr/qr_google.php?widhtHeight=300&amp;chl=hello</a></p>
-<p>参数</p>
-<blockquote>
-<ul>
-<li>widhtHeight - 图片长宽</li>
-<li>chl - 内容</li>
-</ul>
-</blockquote>
-<p>二维码库： <a href="http://tools.shadyzoz.com/qr/db/47d529b39d63df9f74aec6f33bab4fb4.png" target="_blank" rel="external">http://tools.shadyzoz.com/qr/db/47d529b39d63df9f74aec6f33bab4fb4.png</a></p>
-<p>图片以内容＋大小的md5值命名。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md5(hello300) == <span class="string">'47d529b39d63df9f74aec6f33bab4fb4'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="Cipher">Cipher</h2><h3 id="The_Caesar_Cipher">The Caesar Cipher</h3><p>凯撒加密, 可修改步长，支持数字加密，不支持标点，感觉标点没意义啊。。</p>
-<p>链接：<a href="http://tools.shadyzoz.com/cipher/caesar.php" target="_blank" rel="external">http://tools.shadyzoz.com/cipher/caesar.php</a></p>
+        <p>textField为例swift中隐藏键盘的两种方法</p>
+<a id="more"></a>
+<h2 id="基础知识：textField中键盘收起/弹出">基础知识：textField中键盘收起/弹出</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 弹出</span></span><br><span class="line">textField.becomeFirstResponder()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 收起</span></span><br><span class="line">textField.resignFirstResponder()</span><br></pre></td></tr></table></figure>
+<h2 id="方法一：使用UITextFieldDelegate协议，_点“返回”隐藏键盘">方法一：使用<code>UITextFieldDelegate</code>协议， 点“返回”隐藏键盘</h2><ol>
+<li><p>类申明中添加<code>UITextFieldDelegate</code>协议</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span>, <span class="title">UITextFieldDelegate</span> </span>&#123;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>textField设置delegate</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textField.delegate = <span class="keyword">self</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在类中添加<code>textFieldShouldReturn</code>方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">textFieldShouldReturn</span><span class="params">(textField: UITextField)</span> -&gt; <span class="title">Bool</span> </span>&#123;</span><br><span class="line">    textField.resignFirstResponder()</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <hr>
-<p>More will be coming…</p>
+<h2 id="方法二：点击视图区域隐藏键盘">方法二：点击视图区域隐藏键盘</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;NSObject&gt;, withEvent event: UIEvent)</span> </span>&#123;</span><br><span class="line">    textField.resignFirstResponder()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -259,6 +244,16 @@ widhtHeight - 图">
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/02/Learning-Notes-for-Swift/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Learning Notes for Swift</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -282,7 +277,7 @@ widhtHeight - 图">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="ToolBox" data-url="http://www.shadyzoz.com/tools/index.html"></div>
+	<div class="ds-thread" data-thread-key="swift中隐藏键盘的两种方法" data-title="swift中隐藏键盘的两种方法" data-url="http://www.shadyzoz.com/2015/07/03/swift中隐藏键盘的两种方法/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/C-C/" style="font-size: 10px;">C/C++</a><a href="/tags/CAPTCHA/" style="font-size: 10px;">CAPTCHA</a><a href="/tags/Django/" style="font-size: 10px;">Django</a><a href="/tags/Linux/" style="font-size: 18.33px;">Linux</a><a href="/tags/MATLAB/" style="font-size: 10px;">MATLAB</a><a href="/tags/MFC/" style="font-size: 10px;">MFC</a><a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a><a href="/tags/Python/" style="font-size: 20px;">Python</a><a href="/tags/Server/" style="font-size: 13.33px;">Server</a><a href="/tags/Swift/" style="font-size: 10px;">Swift</a><a href="/tags/ToolBox/" style="font-size: 11.67px;">ToolBox</a><a href="/tags/VPS/" style="font-size: 11.67px;">VPS</a><a href="/tags/Whatever/" style="font-size: 13.33px;">Whatever</a><a href="/tags/gui/" style="font-size: 16.67px;">gui</a><a href="/tags/iOS/" style="font-size: 10px;">iOS</a><a href="/tags/socket/" style="font-size: 10px;">socket</a><a href="/tags/信息安全程序设计/" style="font-size: 15px;">信息安全程序设计</a><a href="/tags/加密算法/" style="font-size: 20px;">加密算法</a><a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a>
+						<a href="/tags/C-C/" style="font-size: 10px;">C/C++</a><a href="/tags/CAPTCHA/" style="font-size: 10px;">CAPTCHA</a><a href="/tags/Django/" style="font-size: 10px;">Django</a><a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a><a href="/tags/MATLAB/" style="font-size: 10px;">MATLAB</a><a href="/tags/PHP/" style="font-size: 15px;">PHP</a><a href="/tags/Python/" style="font-size: 20px;">Python</a><a href="/tags/Swift/" style="font-size: 12.5px;">Swift</a><a href="/tags/Whatever/" style="font-size: 15px;">Whatever</a><a href="/tags/iOS/" style="font-size: 12.5px;">iOS</a><a href="/tags/加密算法/" style="font-size: 20px;">加密算法</a><a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a>
 					</div>
 				</section>
 				
@@ -225,9 +225,7 @@
 <a id="more"></a>
 <h1 id="textField中的一些属性">textField中的一些属性</h1><h3 id="Swift中自定义颜色">Swift中自定义颜色</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// RGB模式 参数是浮点数 = 十进制值/255 或者0x开头的16进制书</span></span><br><span class="line"><span class="type">UIColor</span>(red: &lt;#<span class="type">CGFloat</span>#&gt;, green: &lt;#<span class="type">CGFloat</span>#&gt;, blue: &lt;#<span class="type">CGFloat</span>#&gt;, alpha: &lt;#<span class="type">CGFloat</span>#&gt;)</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="textField中键盘收起/弹出">textField中键盘收起/弹出</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 弹出</span></span><br><span class="line">textField.becomeFirstResponder()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 收起</span></span><br><span class="line">textField.resignFirstResponder()</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="点“返回”收回键盘">点“返回”收回键盘</h3><ol>
+<h4 id="点“返回”收回键盘">点“返回”收回键盘</h4><ol>
 <li><p>类申明中添加<code>UITextFieldDelegate</code>协议</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span>, <span class="title">UITextFieldDelegate</span> </span>&#123;</span><br></pre></td></tr></table></figure>
 </li>
@@ -238,6 +236,8 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">textFieldShouldReturn</span><span class="params">(textField: UITextField)</span> -&gt; <span class="title">Bool</span> </span>&#123;</span><br><span class="line">    textField.resignFirstResponder()</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<hr>
+<h3 id="textField中键盘收起/弹出">textField中键盘收起/弹出</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 弹出</span></span><br><span class="line">textField.becomeFirstResponder()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 收起</span></span><br><span class="line">textField.resignFirstResponder()</span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="Int,_Double,_String_与_NSString的转换">Int, Double, String 与 NSString的转换</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// declare variables</span></span><br><span class="line"><span class="keyword">var</span> str:<span class="type">String</span> = <span class="string">"123"</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">NSInt</span>:<span class="type">NSString</span> = <span class="string">"11"</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">NSFloat</span>:<span class="type">NSString</span> = <span class="string">"12.3"</span></span><br><span class="line"><span class="keyword">var</span> double:<span class="type">Double</span> = <span class="number">12.4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String to NSString</span></span><br><span class="line">str <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String to Int</span></span><br><span class="line">str.toInt()</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSString to Int</span></span><br><span class="line"><span class="type">NSInt</span>.intValue</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSString to Double</span></span><br><span class="line"><span class="type">NSFloat</span>.doubleValue</span><br><span class="line"></span><br><span class="line"><span class="comment">// Double to NSString</span></span><br><span class="line"><span class="type">NSString</span>(format:<span class="string">"%.2f"</span>, double) <span class="keyword">as</span> <span class="type">String</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Double to Int</span></span><br><span class="line"><span class="type">Int</span>(<span class="number">12.4</span>)</span><br></pre></td></tr></table></figure>
 <hr>
@@ -251,6 +251,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/07/03/swift中隐藏键盘的两种方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          swift中隐藏键盘的两种方法
+        
+      </div>
+    </a>
   
   
     <a href="/2015/06/05/python基于以及UDP协议的双向通信/" id="article-nav-older" class="article-nav-link-wrap">
