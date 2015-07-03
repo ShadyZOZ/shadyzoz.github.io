@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tarena Summer Camp Day1 | Shady&#39;s Blog</title>
+  <title>Tarena Summer Camp Day3 | Shady&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Notes while learning iOS developing using swift
-Day1">
+  <meta name="description" content="Day3scrollView, navigationView, `tabBar,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tarena Summer Camp Day1">
-<meta property="og:url" content="http://www.shadyzoz.com/2015/07/02/Tarena-Summer-Camp-Day1/index.html">
+<meta property="og:title" content="Tarena Summer Camp Day3">
+<meta property="og:url" content="http://www.shadyzoz.com/2015/07/03/Tarena-Summer-Camp-Day3/index.html">
 <meta property="og:site_name" content="Shady's Blog">
-<meta property="og:description" content="Notes while learning iOS developing using swift
-Day1">
+<meta property="og:description" content="Day3scrollView, navigationView, `tabBar,">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tarena Summer Camp Day1">
-<meta name="twitter:description" content="Notes while learning iOS developing using swift
-Day1">
+<meta name="twitter:title" content="Tarena Summer Camp Day3">
+<meta name="twitter:description" content="Day3scrollView, navigationView, `tabBar,">
   
   
     <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
@@ -187,11 +184,11 @@ Day1">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Tarena-Summer-Camp-Day1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Tarena-Summer-Camp-Day3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/02/Tarena-Summer-Camp-Day1/" class="article-date">
-  	<time datetime="2015-07-01T21:14:12.000Z" itemprop="datePublished">Jul 2 2015</time>
+      <a href="/2015/07/03/Tarena-Summer-Camp-Day3/" class="article-date">
+  	<time datetime="2015-07-03T11:58:36.000Z" itemprop="datePublished">Jul 3 2015</time>
 </a>
     </div>
   
@@ -204,7 +201,7 @@ Day1">
         
   
     <h1 class="article-title" itemprop="name">
-      Tarena Summer Camp Day1
+      Tarena Summer Camp Day3
     </h1>
   
 
@@ -224,28 +221,17 @@ Day1">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Notes while learning iOS developing using swift</p>
-<h1 id="Day1">Day1</h1><a id="more"></a>
-<h2 id="textField中的一些属性">textField中的一些属性</h2><h3 id="Swift中自定义颜色">Swift中自定义颜色</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// RGB模式 参数是浮点数 = 十进制值/255 或者0x开头的16进制数</span></span><br><span class="line"><span class="type">UIColor</span>(red: &lt;#<span class="type">CGFloat</span>#&gt;, green: &lt;#<span class="type">CGFloat</span>#&gt;, blue: &lt;#<span class="type">CGFloat</span>#&gt;, alpha: &lt;#<span class="type">CGFloat</span>#&gt;)</span><br></pre></td></tr></table></figure>
+        <h1 id="Day3">Day3</h1><p><code>scrollView</code>, <code>navigationView</code>, `tabBar,</p>
+<a id="more"></a>
+<h2 id="视图遍历">视图遍历</h2><p>使用数组遍历获取视图中指定类，如从主视图中获取所有的<code>textField</code>并隐藏键盘</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> view <span class="keyword">in</span> <span class="keyword">self</span>.view.subviews</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> view.isKindOfClass(<span class="type">UITextField</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        view.resignFirstResponder()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但view在这里被认为是<code>UIView</code>类，一些<code>UIView</code>没有的属性是无法直接获取的，所以需要强制类型转换</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> view <span class="keyword">in</span> <span class="keyword">self</span>.view.subviews</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> view.isKindOfClass(<span class="type">UITextField</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">println</span>((view <span class="keyword">as</span>! <span class="type">UITextField</span>).text)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h4 id="点“返回”收回键盘">点“返回”收回键盘</h4><ol>
-<li><p>类申明中添加<code>UITextFieldDelegate</code>协议</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span>, <span class="title">UITextFieldDelegate</span> </span>&#123;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>textField设置delegate</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textField.delegate = <span class="keyword">self</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在类中添加<code>textFieldShouldReturn</code>方法</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">textFieldShouldReturn</span><span class="params">(textField: UITextField)</span> -&gt; <span class="title">Bool</span> </span>&#123;</span><br><span class="line">    textField.resignFirstResponder()</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="两种加载图片的方法">两种加载图片的方法</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 程序不关闭不释放内存</span></span><br><span class="line"><span class="keyword">var</span> image = <span class="type">UIImage</span>(named: <span class="string">"imageName"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 图片不用时即释放内存</span></span><br><span class="line"><span class="keyword">var</span> image = <span class="type">UIImage</span>(contentsOfFile: &lt;#<span class="type">String</span>#&gt;)</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="textField中键盘收起/弹出">textField中键盘收起/弹出</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 弹出</span></span><br><span class="line">textField.becomeFirstResponder()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 收起</span></span><br><span class="line">textField.resignFirstResponder()</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Int,_Double,_String_与_NSString的转换">Int, Double, String 与 NSString的转换</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// declare variables</span></span><br><span class="line"><span class="keyword">var</span> str:<span class="type">String</span> = <span class="string">"123"</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">NSInt</span>:<span class="type">NSString</span> = <span class="string">"11"</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">NSFloat</span>:<span class="type">NSString</span> = <span class="string">"12.3"</span></span><br><span class="line"><span class="keyword">var</span> double:<span class="type">Double</span> = <span class="number">12.4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String to NSString</span></span><br><span class="line"><span class="type">NSString</span>(string: str)</span><br><span class="line">str <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NSString to String</span></span><br><span class="line"><span class="type">NSInt</span> <span class="keyword">as</span> <span class="type">String</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String to Int</span></span><br><span class="line">str.toInt()</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSString to Int</span></span><br><span class="line"><span class="type">NSInt</span>.intValue</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSString to Double</span></span><br><span class="line"><span class="type">NSFloat</span>.doubleValue</span><br><span class="line"></span><br><span class="line"><span class="comment">// Double to NSString</span></span><br><span class="line"><span class="type">NSString</span>(format:<span class="string">"%.2f"</span>, double)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Double to Int</span></span><br><span class="line"><span class="type">Int</span>(<span class="number">12.4</span>)</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="view">view</h2><h3 id="获取视图宽高">获取视图宽高</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> width = <span class="type">CGRectGetWidth</span>(<span class="keyword">self</span>.view.bounds)</span><br><span class="line"><span class="keyword">var</span> height = <span class="type">CGRectGetHeight</span>(<span class="keyword">self</span>.view.bounds)</span><br></pre></td></tr></table></figure>
-<hr>
+<h2 id="部分override函数">部分override函数</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 视图函数</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(animated: Bool)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"视图已经出现"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewWillAppear</span><span class="params">(animated: Bool)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"视图将要出现"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 内存警告处理函数</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.didReceiveMemoryWarning()</span><br><span class="line">    <span class="built_in">println</span>(<span class="keyword">__FUNCTION__</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="改变tabBar的背景颜色和被选颜色">改变tabBar的背景颜色和被选颜色</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tabBarController = <span class="type">UITabBarController</span>()</span><br><span class="line"><span class="comment">// 背景颜色</span></span><br><span class="line">tabBarController.tabBar.barTintColor = <span class="type">UIColor</span>(white: <span class="number">0.10</span>, alpha: <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//被选颜色</span></span><br><span class="line">tabBarController.tabBar.tintColor = <span class="type">UIColor</span>(red: <span class="number">1</span>, green: <span class="number">0.22</span>, blue: <span class="number">0.25</span>, alpha: <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -255,18 +241,9 @@ Day1">
     
 <nav id="article-nav">
   
-    <a href="/2015/07/03/swift中隐藏键盘的两种方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          swift中隐藏键盘的两种方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/06/05/python基于以及UDP协议的双向通信/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python基于以及UDP协议的双向通信</div>
+    <a href="/2015/07/03/Tarena-Summer-Camp-Day2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Tarena Summer Camp Day2</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -295,7 +272,7 @@ Day1">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Tarena-Summer-Camp-Day1" data-title="Tarena Summer Camp Day1" data-url="http://www.shadyzoz.com/2015/07/02/Tarena-Summer-Camp-Day1/"></div>
+	<div class="ds-thread" data-thread-key="Tarena-Summer-Camp-Day3" data-title="Tarena Summer Camp Day3" data-url="http://www.shadyzoz.com/2015/07/03/Tarena-Summer-Camp-Day3/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
