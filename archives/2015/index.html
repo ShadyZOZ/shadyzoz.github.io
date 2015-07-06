@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/C-C/" style="font-size: 10px;">C/C++</a><a href="/tags/CAPTCHA/" style="font-size: 10px;">CAPTCHA</a><a href="/tags/Django/" style="font-size: 10px;">Django</a><a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a><a href="/tags/MATLAB/" style="font-size: 10px;">MATLAB</a><a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a><a href="/tags/Python/" style="font-size: 20px;">Python</a><a href="/tags/Swift/" style="font-size: 15px;">Swift</a><a href="/tags/Whatever/" style="font-size: 12.5px;">Whatever</a><a href="/tags/iOS/" style="font-size: 15px;">iOS</a><a href="/tags/加密算法/" style="font-size: 20px;">加密算法</a><a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a>
+						<a href="/tags/C-C/" style="font-size: 10px;">C/C++</a><a href="/tags/CAPTCHA/" style="font-size: 10px;">CAPTCHA</a><a href="/tags/Django/" style="font-size: 10px;">Django</a><a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a><a href="/tags/MATLAB/" style="font-size: 10px;">MATLAB</a><a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a><a href="/tags/Python/" style="font-size: 20px;">Python</a><a href="/tags/Swift/" style="font-size: 16.67px;">Swift</a><a href="/tags/Whatever/" style="font-size: 13.33px;">Whatever</a><a href="/tags/iOS/" style="font-size: 16.67px;">iOS</a><a href="/tags/加密算法/" style="font-size: 20px;">加密算法</a><a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a>
 					</div>
 				</section>
 				
@@ -186,6 +186,62 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Tarena-Summer-Camp-Day5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/06/Tarena-Summer-Camp-Day5/" class="article-date">
+  	<time datetime="2015-07-05T18:42:32.000Z" itemprop="datePublished">Jul 6 2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/06/Tarena-Summer-Camp-Day5/">Tarena Summer Camp Day5</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Day5">Day5</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/06/Tarena-Summer-Camp-Day5/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-Tarena-Summer-Camp-Day4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -212,30 +268,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Day4">Day4</h1><h2 id="一些开发中要知道的固定高度">一些开发中要知道的固定高度</h2><p>状态栏：运营商 时间 电量等，满屏宽， 固定高度：20<br>导航条：不算状态栏，固定高度：44<br>键盘也有固定高度</p>
-<hr>
-<h2 id="使用scrollView高度出现异常">使用<code>scrollView</code>高度出现异常</h2><p>因为自适配原因，在视图使用<code>navigationView</code>中添加<code>scrollView</code>会出现会高度移位问题</p>
-<p>在用Obj-C时会出现，用swift未发现，OC中解决方案</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.edgesForExtendedLayout = <span class="type">UIRectEdge</span>.<span class="type">None</span></span><br></pre></td></tr></table></figure>
-<p>如果swift中正常，请勿加这条语句，否则反而会出现问题。</p>
-<hr>
-<h2 id="NSTimer定时器">NSTimer定时器</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">NSTimer</span> timer = <span class="type">NSTimer</span>.scheduledTimerWithTimeInterval(<span class="number">3</span>, target: <span class="keyword">self</span>, selector: <span class="string">"timeStart"</span>, userInfo: <span class="built_in">nil</span>, repeats: <span class="built_in">true</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>interval 时间间隔<br>target 一般使用self参数即可<br>selecor 选择器，参数理解为要执行的函数<br>userInfo 绑定信息，用于发送<br>repeats 石头重复</p>
-</blockquote>
-<hr>
-<h2 id="滚动banner栏">滚动banner栏</h2><p>写的太乱了，以后再单独更新</p>
-<p>实现思路</p>
-<blockquote>
-<p>创建一个高度相同，contentView是frame的N倍<br>向这个scrollView中添加图片，起点顺次加宽度<br>使用pagingEnabled ＝ true开启分页效果<br>使用pageView显示图片浏览的点<br>调用delegate函数等实现定时切页、首位衔接等。</p>
-</blockquote>
-<hr>
-<h2 id="使用for循环简化代码">使用for循环简化代码</h2><p>以向bannerScrollView中添加图片为例，向其中添加5张图</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> image0 = <span class="type">UIImage</span>(named: <span class="string">"banner00"</span>)</span><br><span class="line"><span class="keyword">var</span> image1 = <span class="type">UIImage</span>(named: <span class="string">"banner01"</span>)</span><br><span class="line"><span class="keyword">var</span> image2 = <span class="type">UIImage</span>(named: <span class="string">"banner02"</span>)</span><br><span class="line"><span class="keyword">var</span> image3 = <span class="type">UIImage</span>(named: <span class="string">"banner03"</span>)</span><br><span class="line"><span class="keyword">var</span> image4 = <span class="type">UIImage</span>(named: <span class="string">"banner04"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> imageView0 = <span class="type">UIImageView</span>(frame: <span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, width, <span class="number">104</span>))</span><br><span class="line"><span class="keyword">var</span> imageView1 = <span class="type">UIImageView</span>(frame: <span class="type">CGRectMake</span>(width, <span class="number">0</span>, width, <span class="number">104</span>))</span><br><span class="line"><span class="keyword">var</span> imageView2 = <span class="type">UIImageView</span>(frame: <span class="type">CGRectMake</span>(width * <span class="number">2</span>, <span class="number">0</span>, width, <span class="number">104</span>))</span><br><span class="line"><span class="keyword">var</span> imageView3 = <span class="type">UIImageView</span>(frame: <span class="type">CGRectMake</span>(width * <span class="number">3</span>, <span class="number">0</span>, width, <span class="number">104</span>))</span><br><span class="line"><span class="keyword">var</span> imageView4 = <span class="type">UIImageView</span>(frame: <span class="type">CGRectMake</span>(width * <span class="number">4</span>, <span class="number">0</span>, width, <span class="number">104</span>))</span><br><span class="line"></span><br><span class="line">imageView0.image = image0</span><br><span class="line">imageView1.image = image1</span><br><span class="line">imageView2.image = image2</span><br><span class="line">imageView3.image = image3</span><br><span class="line">imageView4.image = image4</span><br><span class="line"></span><br><span class="line">bannerScrollView.addSubview(imageView0)</span><br><span class="line">bannerScrollView.addSubview(imageView1)</span><br><span class="line">bannerScrollView.addSubview(imageView2)</span><br><span class="line">bannerScrollView.addSubview(imageView3)</span><br><span class="line">bannerScrollView.addSubview(imageView4)</span><br></pre></td></tr></table></figure>
-<p>使用for循环写</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="number">5</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"banner0"</span> + <span class="type">String</span>(i)</span><br><span class="line">    <span class="keyword">var</span> image = <span class="type">UIImage</span>(named: name)</span><br><span class="line">    <span class="keyword">var</span> imageView = <span class="type">UIImageView</span>(frame: <span class="type">CGRectMake</span>(width * <span class="type">CGFloat</span>(i), <span class="number">0</span>, width, <span class="number">104</span>))</span><br><span class="line">    imageView.image = image</span><br><span class="line">    bannerScrollView.addSubview(imageView)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>很简单有木有！</p>
-
+        <h1 id="Day4">Day4</h1>
       
     </div>
     
@@ -247,6 +280,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/05/Tarena-Summer-Camp-Day4/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -704,65 +741,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/04/30/Virtual-Box中安装Kali-Linux增强工具方法/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-验证码识别101" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/04/21/验证码识别101/" class="article-date">
-  	<time datetime="2015-04-21T00:36:28.000Z" itemprop="datePublished">Apr 21 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/21/验证码识别101/">验证码识别101</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0x00">0x00</h1><p>学校图书馆的系统升级了～ 访问速度变快了，表示看到登陆页的验证码过为简单灰常不开心，于是着手写代码，自动识别验证码。</p>
-<p>图书馆验证码：</p>
-<p><img src="http://7vzsal.com1.z0.glb.clouddn.com/test.gif" alt="lib"></p>
-<h1 id="0x01_基本想法">0x01 基本想法</h1><p>关于验证码的识别，主要是对图片内字符串切割，二值化之后，对二值化结果的字符串与已知二值化字符串进行对比。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CAPTCHA/">CAPTCHA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/04/21/验证码识别101/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

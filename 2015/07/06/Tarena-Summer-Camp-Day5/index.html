@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>利用john the ripper暴力破解linux密码 | Shady&#39;s Blog</title>
+  <title>Tarena Summer Camp Day5 | Shady&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现在的linux系统密码大多都用的sha512并加盐，利用john+字典的方式可以很方便的跑出来。">
+  <meta name="description" content="Day5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用john the ripper暴力破解linux密码">
-<meta property="og:url" content="http://www.shadyzoz.com/2015/04/13/利用john-the-ripper暴力破解linux密码/index.html">
+<meta property="og:title" content="Tarena Summer Camp Day5">
+<meta property="og:url" content="http://www.shadyzoz.com/2015/07/06/Tarena-Summer-Camp-Day5/index.html">
 <meta property="og:site_name" content="Shady's Blog">
-<meta property="og:description" content="现在的linux系统密码大多都用的sha512并加盐，利用john+字典的方式可以很方便的跑出来。">
+<meta property="og:description" content="Day5">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用john the ripper暴力破解linux密码">
-<meta name="twitter:description" content="现在的linux系统密码大多都用的sha512并加盐，利用john+字典的方式可以很方便的跑出来。">
+<meta name="twitter:title" content="Tarena Summer Camp Day5">
+<meta name="twitter:description" content="Day5">
   
   
     <link rel="icon" href="http://7vzqss.com1.z0.glb.clouddn.com/favicon.jpg">
@@ -184,11 +184,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-利用john-the-ripper暴力破解linux密码" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Tarena-Summer-Camp-Day5" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/04/13/利用john-the-ripper暴力破解linux密码/" class="article-date">
-  	<time datetime="2015-04-13T15:54:09.000Z" itemprop="datePublished">Apr 13 2015</time>
+      <a href="/2015/07/06/Tarena-Summer-Camp-Day5/" class="article-date">
+  	<time datetime="2015-07-05T18:42:32.000Z" itemprop="datePublished">Jul 6 2015</time>
 </a>
     </div>
   
@@ -201,7 +201,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      利用john the ripper暴力破解linux密码
+      Tarena Summer Camp Day5
     </h1>
   
 
@@ -210,7 +210,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密算法/">加密算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 	</div>
 
         
@@ -221,16 +221,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>现在的linux系统密码大多都用的sha512并加盐，利用john+字典的方式可以很方便的跑出来。</p>
-<a id="more"></a>
-<h2 id="安装john">安装john</h2><p>ubuntu/debian为例</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="keyword">get</span> install john</span><br></pre></td></tr></table></figure>
-<h2 id="提取密码文件待破解">提取密码文件待破解</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo unshadow <span class="regexp">/etc/</span>passwd <span class="regexp">/etc/</span>shadow &gt; tocrack</span><br></pre></td></tr></table></figure>
-<h2 id="破解">破解</h2><p>利用字典暴力跑密码，破解几率取决于你的字典质量与对方的密码质量。</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">$</span> <span class="comment">john</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">wordlist=wordlist</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">rules</span> <span class="comment">tocrack</span></span><br></pre></td></tr></table></figure>
-<p>如果破解成功，可以看到密码，并停止进程。</p>
-<h2 id="查看密码">查看密码</h2><p>john可以对同一系统下多用户进行破解，并可以随时查看密码。</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ john <span class="comment">--show tocrack</span></span><br></pre></td></tr></table></figure>
+        <h1 id="Day5">Day5</h1><a id="more"></a>
+<p>课上主要内容</p>
+<blockquote>
+<p>类的封装。封装了一个图片样式的类<br>UIControl</p>
+</blockquote>
+<h2 id="UIControl的传参">UIControl的传参</h2><p>control.addTarget()定义action的时候加一个‘:’，即’action:’可以进行传参</p>
+<p>使用Int型的<code>control.tag</code>可以将参数带到函数中计数</p>
+<hr>
+<p>杭州最近一直下雨，今天课上的东西也没什么可记的。</p>
+<h2 id="Swift的MusicPlayer">Swift的MusicPlayer</h2><p>使用<code>AVFoundation</code>做了一集简单的列表播放功能的播放器。</p>
+<p><a href="https://github.com/ShadyZOZ/tarena2015" target="_blank" rel="external">源码</a></p>
 
       
     </div>
@@ -240,18 +241,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/04/19/利用MATLAB画一个3D红心/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          利用MATLAB画一个3D红心
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/04/06/转接google二维码api/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">转接google二维码api</div>
+    <a href="/2015/07/05/Tarena-Summer-Camp-Day4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Tarena Summer Camp Day4</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -280,7 +272,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="利用john-the-ripper暴力破解linux密码" data-title="利用john the ripper暴力破解linux密码" data-url="http://www.shadyzoz.com/2015/04/13/利用john-the-ripper暴力破解linux密码/"></div>
+	<div class="ds-thread" data-thread-key="Tarena-Summer-Camp-Day5" data-title="Tarena Summer Camp Day5" data-url="http://www.shadyzoz.com/2015/07/06/Tarena-Summer-Camp-Day5/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
